@@ -1,0 +1,819 @@
+:root {
+	--main-bg-color: #fff;
+	--default-color: #343a40;
+	--light-text-color: #999;
+	--highlight-text-color: #fff;
+	--theme-color:  #ff0066;
+	--secondary-theme-color: #23ea73;
+	--on-color: #1abc9c;
+	--h4-color: #1abc9c;
+}
+[data-theme="dark"]{
+	--main-bg-color: #1f1f1f;
+	--default-color: #ccc;
+	--light-text-color: #999;	
+	--highlight-text-color: #0a0a0a;	
+	--theme-color: #23ea73;
+	--secondary-theme-color: #ff0075;
+	--on-color: #0b0b0b;
+	--h4-color: #ffb7c5 ;
+}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+	background-color: #121212 !important;
+	color: var(--default-color) !important;
+	font-size: 1rem !important;
+}
+p{
+	margin-bottom: 0 !important;
+}
+a {
+  color: var(--default-color) !important;
+}
+a:hover {
+	text-decoration: none !important;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    width: 100%;
+}
+tr, td {
+	padding: 10px 0;
+}
+header {
+    background-color: none;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 10vh;    
+    top: 0;
+}
+h2 {
+	font-weight: 700 !important;
+}
+h4 {
+	font-weight: 600 !important;
+	color: var(--h4-color); 
+}
+h5 {
+	font-weight: 600 !important;
+}
+
+/* particles.js */
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    margin-top: 0;
+    top: 0;
+}
+#dots-js{
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+
+
+
+/* Navigation bar */
+.navbar {
+	background-color: none;
+	color: var(--default-color) !important;
+	padding: 0;
+	font-weight: 400;
+	top:0;
+	height: 100%
+}
+.navbar-nav li > a {
+	padding: 0.3em 0.5em 0.5em 0.5em;
+	border-bottom: 3px solid var(--on-color) !important;	
+}
+.navbar-nav li > a:hover {
+    background-color: var(--on-color) !important;
+    border-bottom: 3px solid var(--theme-color) !important;
+}
+.navbar-nav li.active > a { 
+    background-color: var(--on-color) !important;
+    border-bottom: 3px solid var(--theme-color) !important;	
+}
+.nav-link {
+	background-color: var(--on-color) !important;
+	color: var(--default-color) !important;
+	font-weight: 600 !important;
+	padding: 10px;
+}
+.navbar-brand .logo-name {
+	position: relative;
+	visibility: hidden;
+	background: none;
+}
+.navbar-brand:hover .logo-name {
+	visibility: visible;
+}
+
+
+
+
+/* Home page */
+.word-swap span:before {
+	content: "Data analytics";
+	text-shadow: 3px 5px 5px rgba(0, 0, 0, .3);
+	animation: wordanimate infinite 8s;
+}
+@keyframes wordanimate {
+	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+}
+
+.btn-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+.btn-wrapper a{
+  display: block;
+  width: 120px;
+  height: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--default-color) !important;;
+  border: 1px solid var(--default-color) !important;;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  transition: all .5s;
+}
+.btn-wrapper a span{
+  position: relative;
+  z-index: 2;
+}
+.btn-wrapper a:hover{
+  color: var(--highlight-text-color) !important;;
+}
+.btn-wrapper a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--theme-color);
+  transition: all .5s;
+}
+.btn-wrapper a:hover:after{
+  width: 100%;
+}
+.fa-icon{
+	color:var(--theme-color);
+}
+
+/* ------------dark switch------------*/
+.dark-switch-wrapper {
+	display: flex;
+	align-items: center;
+    top: 50vh;
+    left: 4vw;
+    position: fixed;
+    transform-origin: left top;
+}
+.dark-switch {
+	position: absolute;
+	display: inline-block;
+	height: 40px;
+	width: 20px;
+	left:-2px;
+}
+.dark-btn {
+	background-color: var(--secondary-theme-color);
+	position: absolute;  
+	cursor: pointer;  
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	top: -20px;
+	transition: .4s;
+}
+.dark-btn:before {
+	content: "";
+	position: absolute;
+	background-color: black;
+	width: 16px;
+	height: 16px;
+	left: 2px;
+	bottom: 2px;
+	transition: .4s;
+}
+input {
+	position: relative;
+	right:-4px;
+	top:-2px;
+}
+input:checked + .dark-btn {
+  background-color: var(--secondary-theme-color);;
+}
+input:checked + .dark-btn:before {
+	top:2px;
+  	transform: translatY(-20px);
+}
+.dark-btn.round {
+	border-radius: 20px;
+}
+.dark-btn.round:before {
+	border-radius: 50%;
+}
+
+
+
+/* About me */
+.container {
+	background: none;
+	width: 100%;
+	height:100%;
+	padding: 20px; 
+	overflow-y:auto; 
+	overflow-x:hidden;
+	position: relative;
+	display: block;
+}
+::-webkit-scrollbar {
+    width: 7px;
+    padding: 0;
+    margin: 5px;
+    border-radius: 10px;
+
+} 
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: none;
+    border-radius: 10px;
+    padding: 4px;
+}
+::-webkit-scrollbar-thumb {
+	margin: 5px; 
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px var(--theme-color); 
+    background-color: var(--theme-color);
+}
+.fa-ul .fa-li{
+	color: var(--theme-color);
+	padding-bottom: 10px;
+	margin-left: -10px; 
+	margin-top: 8px;
+}
+.briefsummery-container {
+	background: none;
+	width: 100%;
+	height: 80%;
+	padding: 20px; 
+	overflow-y:auto; 
+	overflow-x:hidden;
+	position: relative;
+	display: block;
+}
+
+/* Resume */
+.subslide-title {
+	position: relative;
+	width: 100%;
+	height:100%;
+}
+.card {
+	background: none !important;
+	border: 1px solid var(--on-color) !important;;
+}
+.progress-bar{
+	display: block;
+	background-color: var(--on-color);	
+	height: 5px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.progress-bar span{
+	height: 5px;
+	float: left;
+	background: var(--theme-color);
+}
+.fortran { width: 70%; animation: fortran 2s}
+.matlab { width: 90%; animation: matlab 2s}
+.ansys { width: 60%; animation: ansys 2s}
+.phython { width: 50%; animation: phython 2s}
+.tinker { width: 40%; animation: tinker 2s}
+.jmp { width: 50%; animation: jmp 2s}
+.labview { width: 50%; animation: labview 2s}
+.mathematica { width: 40%; animation: mathematica 2s}
+.html { width: 60%; animation: html 2s}
+.ms { width: 100%; animation: ms 2s}
+@keyframes fortran {
+	0%{width: 0%;};
+	100%{width: 70%;}
+}
+@keyframes matlab {
+	0%{width: 0%;};
+	100%{width: 90%;}
+}
+@keyframes ansys{
+	0%{width: 0%;};
+	100%{width: 60%;}
+}
+@keyframes html {
+	0%{width: 0%;};
+	100%{width: 60%;}
+}
+@keyframes phython {
+	0%{width: 0%;};
+	100%{width: 50%;}
+}
+@keyframes jmp{
+	0%{width: 0%;};
+	100%{width: 50%;}
+}
+@keyframes labview {
+	0%{width: 0%;};
+	100%{width: 50%;}
+}
+@keyframes tinker {
+	0%{width: 0%;};
+	100%{width: 40%;}
+}
+@keyframes mathematica {
+	0%{width: 0%;};
+	100%{width: 40%;}
+}
+@keyframes ms {
+	0%{width: 0%;};
+	100%{width: 100%;}
+}
+.grade-circle {
+	position: relative;
+	display: inline-flex;
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	background: gray;
+	color: var(--default-color);
+	justify-content: center;
+	font-weight: 500;
+	padding-top: 2px; 
+	opacity: 0.3;
+}
+.grade-circle-highlight {
+	position: relative;
+	display: inline-flex;
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	background: var(--theme-color);
+	color: var(--highlight-text-color);	
+	justify-content: center;
+	font-weight: 600;
+	padding-top: 2px; 
+}
+.resume-table tr,td {
+	padding: 2px 0;
+	vertical-align:top;
+}
+
+
+.education-timeline {
+	position: relative;
+	width: 100%;	
+}
+.education-timeline:before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	width: 5px;
+	height: 400px;
+	background: var(--on-color);
+}
+.education-timeline ul {
+	padding: 0;
+	margin: 0;
+}
+.education-timeline ul li {
+	list-style: none;
+	position: relative;
+	width: 50%;
+	padding: 5px 0;
+	box-sizing: border-box;
+}
+.education-timeline ul li:nth-child(odd) {
+	float: left;
+	text-align: right;
+	padding-right:3rem; 
+	clear: both;
+}
+.education-timeline ul li:nth-child(even) {
+	float: right;
+	text-align: left;
+	padding-left:3rem; 	
+	clear: both;
+}
+.education-timeline ul li:nth-child(odd) .education-timeline-year {
+	text-align: center;	
+	position: absolute;
+	display: block;
+	right:-5%;
+	width: 3rem;
+	background: var(--theme-color);
+	color: var(--highlight-text-color);
+	font-weight: 500;
+	z-index: 10;
+}
+.education-timeline ul li:nth-child(even) .education-timeline-year {
+	text-align: center;		
+	position: absolute;
+	display: block;
+	left:-4.5%;
+	width: 3rem;
+	background: var(--theme-color);
+	color: var(--highlight-text-color);
+	font-weight: 500;
+	z-index: 10;	
+}
+.education-timeline ul li:nth-child(odd) .education-timeline-content {
+	position: relative;
+	display: inline-block;
+	background-color: var(--on-color);
+	border-right: 5px solid var(--theme-color);
+	width: 90%;
+	padding: 10px;
+}
+.education-timeline ul li:nth-child(even) .education-timeline-content {
+	position: relative;
+	display: inline-block;
+	background-color: var(--on-color);
+	border-left: 5px solid var(--theme-color);
+	width: 90%;
+	padding: 10px;
+}
+.education-timeline ul li:nth-child(odd) .education-timeline-content:before {
+	content: '';
+	position: absolute;
+	left: 100%;
+	width: 3rem;
+	height: 5px;
+	display: inline-block;
+	background-color: var(--theme-color);
+	z-index: 1;
+}
+.education-timeline ul li:nth-child(even) .education-timeline-content:before {
+	content: '';
+	position: absolute;
+	right: 100%;
+	width: 3rem;
+	height: 5px;
+	display: inline-block;
+	background-color: var(--theme-color);
+	z-index: 1;
+}
+.education-timeline ul li:nth-child(odd) .education-timeline-text {
+	position: relative;
+	top:-100%;
+	width: 100%;
+	display: inline-block;
+}
+.education-timeline ul li:nth-child(even) .education-timeline-text {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+}
+
+
+
+.timeline {
+	position: relative;
+	width: 100%;
+} 
+.timeline:before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	width: 5px;
+	height: 100%;
+	background: var(--on-color);
+}
+.timeline ul {
+	padding: 0;
+	margin: 0;
+}
+.timeline ul li {
+	list-style: none;
+	position: relative;
+	width: 50%;
+	padding: 5px 0;
+	box-sizing: border-box;
+}
+.timeline ul li:nth-child(odd) {
+	float: left;
+	text-align: right;
+	padding-right:5rem; 
+	clear: both;
+}
+.timeline ul li:nth-child(even) {
+	float: right;
+	text-align: left;
+	padding-left:2.5rem; 	
+	clear: both;
+}
+.timeline ul li:nth-child(odd) .timeline-year {
+	text-align: center;	
+	position: absolute;
+	display: block;
+	right:-5%;
+	width: 3rem;
+	background: var(--theme-color);
+	color: var(--highlight-text-color);
+	font-weight: 500;
+}
+.timeline ul li:nth-child(even) .timeline-year {
+	text-align: center;		
+	position: absolute;
+	display: block;
+	left:-4.5%;
+	width: 3rem;
+	background: var(--theme-color);
+	color: var(--highlight-text-color);
+	font-weight: 500;
+}
+.timeline-content {
+	position: relative;
+	display: inline-block;
+}
+.timeline ul li:nth-child(even) .timeline-text {
+	position: relative;
+	display: inline-block;
+	padding-left: 3rem;
+}	
+.timeline ul li:nth-child(odd) .timeline-icon{
+	right: -9%;
+	position: absolute;
+	display: inline-block;
+	color: var(--default-color);
+}
+.timeline ul li:nth-child(even) .timeline-icon {
+	left: 0;
+	position: absolute;
+	display: inline-block;
+	color: var(--default-color);
+}
+.year-block {
+	position: relative;
+	display: inline-block;
+	width: 8rem;
+	height: 1.2rem;
+	justify-content: center;
+	text-align: center;
+	background-color: var(--theme-color);
+	color: var(--highlight-text-color);
+	font-weight: 500;
+}
+
+
+
+
+/* Teaching slide */
+/* Tooltips */
+
+.fas {
+	color: var(--h4-color);
+}
+.fas-quote {
+	color: var(--theme-color);
+}
+.student-icon {
+	position: relative;
+	font-size: 3.5rem;
+}
+.student-icon .fas {
+	letter-spacing: -0.5rem;
+	color: var(--default-color);	
+}
+.student-icon .fas:hover {
+	color: var(--theme-color);
+}
+.feedback-text {
+	display: block;
+	position: absolute;
+	background-color: var(--main-bg-color);
+	border: 1px solid var(--theme-color);
+	color: var(--default-color);
+	top: 0px;
+	left: 50%;
+	width: 300px;
+	padding: 0.8rem 1rem;
+	font-size: 0.8rem;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-50%, -100%);
+	-webkit-transform: translate(-50%, -100%);
+	transition: all 0.3s ease;
+	z-index: 1;
+}
+ .feedback-text:after {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    color: var(--theme-color);
+    border-color: var(--main-bg-color) transparent transparent;
+    transform: translate(-50%, 100%);
+    -webkit-transform: translate(-50%, 100%);
+}
+ .student-icon:hover .feedback-text {
+	 visibility: visible;
+	 opacity: 1;
+	 transform: translate(-50%, -150%);
+	 -webkit-transform: translate(-50%, -150%);
+}
+
+
+
+
+/*  Research */
+.card-text {
+  background-color: var(--on-color);
+  color: var(--default-color);
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  height: 27%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: 1px solid var(--on-color);
+}
+.card-img-container {
+  background-color: var(--on-color);
+  position: relative;
+  display:block;
+  width: 100%;
+  height: 73%;
+  object-fit: cover;
+  border: 1px solid var(--on-color);  
+}
+
+.reference {
+  position: relative;
+  display: inline-block;
+}
+.reference .referencetext {
+  visibility: hidden;
+  width: 300px;
+  background-color: var(--on-color);
+  color: var(--default-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.reference .referencetext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.reference:hover .referencetext {
+  visibility: visible;
+  opacity: 1;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+}
+
+
+/*  Personal  */
+.hobby {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 5rem;
+    padding-bottom: 1rem;
+}
+.hobby .fas{
+	color: #000;
+}
+.hobby .caption {
+    display: block;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
+.fun-facts ol {
+   list-style: none;
+   counter-reset: item;
+ }
+ .fun-facts li {
+   counter-increment: item;
+   margin-bottom: 5px;
+ }
+ .fun-facts li:before {
+   margin-right: 10px;
+   content: counter(item);
+   background: var(--theme-color);
+   border-radius: 100%;
+   color: var(--highlight-text-color);
+   width: 1.5em;
+   text-align: center;
+   display: inline-block;
+   font-weight: 600; 
+ }
+
+
+
+
+/* Contact page */
+.contact-table tr, td{
+	padding-bottom: 10px;
+}
+input[type=text],input[type=email], textarea {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	resize: vertical;
+  	background-color: var(--main-bg-color)
+}
+
+input[type=submit] {
+	background: none;
+	color: var(--default-color);
+	font-weight: 500;
+	padding: 0 10px;
+	border: 1px solid var(--default-color);
+	cursor: pointer;
+	height: 100%;
+ 	letter-spacing: 1px;
+ 	transition: 0.5s;
+ 	text-align: center;
+}
+input[type=submit]:hover{
+  color: var(--on-color);
+  background-color: var(--theme-color);
+  transition: all .5s;
+}
+input[type=submit]:hover:after{
+  width: 100%;
+}
+.social-media {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+}
+.social-media-icons {
+	color: var(--default-color);
+	padding: 5px;
+
+}
+.social-media-icons:hover{
+	color: var(--theme-color);
+}

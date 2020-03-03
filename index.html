@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+
+<!-- This website theme is inspired from https://www.themezaa.com/html/muu/white/index.html -->
+<html>
+<title>Balachandar Guduri</title>
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://kit.fontawesome.com/46255c11b5.js" crossorigin="anonymous"></script>
+
+<!-- Google bar chart -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- Bar chart for student feedback -->
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Parameter', 'Spring 18: Section 1', 'Spring 18: Section 2', 'Fall 17: Section 1', 'Fall 17: Section 2'],
+      ['The instructor was well prepared.', 5.4,	5.2,	5.4,	5.2],
+      ['The instructor provided feedback.', 5.1,	5.1,	5.2,	5.2],
+      ['The instructor fostered an atmosphere of mutual respect.', 5.3,	5.5,	5.3,	5.5],
+      ['Overall, the instructor teaching was effective.', 5.1,	5.3,	5.3,	4.9],
+      ['The instructor treated students with respect.', 5.3,	5.6,	5.5,	5.4],
+      ['The instructor had a reasonable grading system.', 5.7,	5.5,	5.5,	5.6],
+    ]);
+
+    var options = {
+      bars: 'horizontal',
+      backgroundColor: 'none',
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+</script>
+<!-- Shankey chart for Projects -->
+<script type="text/javascript">
+	google.charts.load("current", {packages:["sankey"]});
+	google.charts.setOnLoadCallback(drawChart);
+	function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+		[ 'Matlab', 'Numerical modeling of PS process', 2 ],
+		[ 'Matlab', 'Screening of process parameters', 5 ],
+		[ 'Matlab', 'Process parameter optimization', 5 ],
+		[ 'Matlab', 'System identification in PS process', 5 ],
+		[ 'Matlab', 'Multi-class classification using SVMs', 10 ],
+		[ 'Fortran','Numerical modeling of PS process', 8 ],
+		[ 'Fortran', 'Screening of process parameters', 3 ],
+		[ 'Fortran', 'Process parameter optimization', 1 ],
+		[ 'Fortran', 'Design of robust adaptive process control', 10 ],
+		[ 'JMP', 'Process parameter optimization', 2 ],
+		[ 'LabView', 'Design of a virtual lab - MSSP', 5 ],
+		[ 'Tinker', 'Course project: Nanomechanics', 10 ],
+		[ 'HTML5 & CSS3', 'Design of a virtual lab - MSSP', 5 ],
+		[ 'Tecplot', 'Numerical modeling of PS process', 3],
+		[ 'Phython', 'Process parameter optimization', 2 ],
+		[ 'Screening of process parameters','Data analytics',8],
+		[ 'Process parameter optimization', 'Data analytics', 4 ],
+		[ 'System identification in PS process', 'Data analytics', 5 ],
+		[ 'Design of a virtual lab - MSSP', 'Data analytics', 10 ],
+		[ 'Process parameter optimization', 'Machine learning', 6 ],
+		[ 'Multi-class classification using SVMs', 'Machine learning', 10 ],
+		[ 'Design of robust adaptive process control', 'Control design', 10 ],
+       	[ 'Numerical modeling of PS process', 'Numerical simulations', 13 ],
+       	[ 'Course project: Nanomechanics', 'Numerical simulations', 10 ],
+    ]);
+    // Set chart options
+    var colors = ['#C0392B','#E74C3C', '#9B59B6', '#2980B9', 
+                  '#1ABC9C','#F1C40F', '#E67E22', '#D35400'];
+    var options = {
+      sankey: {
+        node: {
+          colors: colors,
+          label: { fontName: 'Times-Roman',
+                     fontSize: 16,
+                     color: '#0a0a0a',
+                     bold: true,
+                     italic: true }
+        },
+        link: {
+          colorMode: 'gradient',
+          colors: colors
+        }
+      }
+    };
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+<!-- Modal box for Abstracts -->
+<script type="text/javascript">
+	$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').trigger('focus')
+	})
+</script>
+<!--Nav links active -->
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('.nav li').click(function(){
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+    });
+});
+</script>
+
+
+
+<body data-gr-c-s-loaded="true">
+	<div id="dots-js" class="wrapper">
+		<!-- Header - Nav bar -->
+		<header>
+			<nav class="navbar navbar-dark navbar-expand-lg navbar-fixed-top px-0 py-0" role="navigation">
+				<a class="navbar-brand" href="#">
+					<h5 style="color:#fff"><span><img style="height:2rem; margin-right:5px" src="img/logo.png"></span>
+					<span class="logo-name">
+						Balachandar Guduri</span></h5>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar">
+					<span class="navbar-toggler-icon pr-3"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="mainNavbar">
+					<ul class="nav navbar-nav ml-auto">
+					  <li class="active"><a class="nav-link" href="#home">Home</a></li>
+					  <li><a class="nav-link" href="#aboutme">About me</a></li>
+					  <li><a class="nav-link" href="#resume">Resume</a></li>
+					  <li><a class="nav-link" href="#research">Research</a></li>
+					  <li><a class="nav-link" href="#teaching">Teaching</a></li>
+					  <li><a class="nav-link" href="#personal">Personal</a></li>
+					  <li><a class="nav-link" href="#contact">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header><!-- End Header -->
+
+
+		<!-- V-cards -->
+		<div class="main-container">
+
+			<!-- Page Home  -->
+			<section id="home" class="page-container">
+				<div class="row w-100 mx-0">
+					<span class="col-sm-12 circle-cover-photo"><img src="img/circle-balu.png" alt=""></span>
+					<div class="container text-center col-sm-12 col-md-6 col-xl-8">
+						<h2 class="pt-2">Hello!	</h2>
+						<h1 class="pt-1">I'm <span style="color: var(--theme-color);opacity: 0.8;text-shadow: 3px 5px 5px rgba(0, 0, 0, .3);">Balachandar Guduri</span>.
+						</h1>
+						<h6 >Ph.D. Candidate, Virgnia Tech, US.</h6>
+						<h5 class="pt-5">Highly motivated interdisciplinary researcher in</h5>
+						<h1 class="word-swap"><span></span></h1>
+
+
+						<h5 class="pt-4">Currently looking for full-time work or freelance projects</h5>
+						<h6 class="btn-wrapper mb-0">
+							<a href="#aboutme"><span>About Me!</span></a>
+						</h6>
+						<h6 class="btn-wrapper mb-0">
+							<a href="#"><span>Download CV</span></a>
+						</h6>
+						<div class="social-media text-center pt-3">
+							<a href="https://www.facebook.com/balachandar.guduri" target="_blank"><i class="social-media-icons fab fa-2x fa-facebook-square"></i></a>
+							<a href="https://www.linkedin.com/in/balachandar-guduri" target="_blank"><i class="social-media-icons fab fa-2x fa-linkedin"></i></a>
+							<i class="social-media-icons fab fa-2x fa-github-square"></i>
+							<i class="social-media-icons fab fa-2x fa-instagram-square"></i>
+						</div>
+					</div>
+					<div class="container col-sm-12 col-md-6 col-xl-4">
+						<span class="cover-photo"><img src="img/balu.png" alt=""></span>
+					</div>
+				</div>
+			</section><!-- End of Home -->
+
+
+			<!-- Page - About me --->
+			<section id="aboutme" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-sm-12 col-lg-1">
+						<h2 class="slide-title-text">- About me -</h2>
+					</div>
+					<div class="container col-sm-12 col-md-4 col-lg-4 col-md-4 pt-3">
+						<div class="container py-0 px-0">
+							<img style="display:block; width: 100%; vertical-align: middle;" src="img/balu3.jpg" alt="">
+						</div>
+					</div>					
+					<div class="container col-sm-12 col-md-8 col-lg-7" style="overflow: hidden;">
+						<h5 class="text-center font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.<small><span style="color:var(--default-color);text-shadow:none">- Thomas A. Edison</span></small></h5>
+						<h4 class="text-center py-3">Brief summary</h4>
+						<div class="container pt-0 pb-5">
+							<div class="briefsummery-container pt-0 pb-5">
+								<ul class="fa-ul pt-3">
+									<li style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-user-graduate"></i></span>Highly motivated interdisciplinary researcher with 
+										<ul style="color: var(--light-text-color)">
+											<li>M.Tech. in Mechanical system design from IIT Kharagpur</li>
+											<li>M.S. in Engineering Mechanics from Virginia Tech</li>
+											<li>Ph.D. (abd status) in Engineering Mechanics from Virginia Tech</li>
+										</ul>
+									</li>
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-book-open"></i></span>Possess an extensive background in academics (9 years) and research (7+ years) in mechanical engineering disciplines:
+										<ul style="color: var(--light-text-color)">
+											<li>data analytics</li>
+											<li>machine learning</li>
+											<li>numerical modeling</li>
+											 <li>control systems</li>
+										</ul>
+									</li>
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-laptop-code"></i></span>Hands-on experiences 
+										<ul style="color: var(--light-text-color)">
+											<li>to mathematically formulate and numerical simulate several physical processes with satisfactory accuracy</li>
+											<li>to extract meaningful information from raw data using descriptive, diagnostic and predictive analyses</li>
+											<li>to design robust and reliable control system model for real-world processes</li>
+										</ul>
+									</li>
+									<li sclass="pt-2" tyle="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-suitcase"></i></span>Worked as a research assistant for 3 years in a university-affiliated research team for Rolls Royce sponsored project</li>  
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-hand-holding-usd"></i></span>Served as a director of finance and budget board member for 2 years  to oversee the financial system for university-affiliated organizations</li>
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-chalkboard-teacher"></i></span>Served as a teaching assistant for 3.5 years with an effective teaching philosophy which proven success in assisting undergraduates in Virginia Tech</li> 
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-user-secret"></i></span>Capable of handling multiple projects at a time with minimum supervision</li>
+								</ul>
+								<div style="text-align:right">
+									<h6 class="btn-wrapper mb-0 pt-3">
+										<a href="#resume"><span>Learn more</span></a>
+									</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!--End of Aboutme -->
+
+
+			<!-- Page - resume -->
+			<section id="resume" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-sm-12 col-lg-1">
+						<h2 class="slide-title-text">- Resume -</h2>
+					</div>
+					<div class="container col-sm-12 col-lg-11">
+							<h5 class="text-center font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Choose a job you love, and you will never have to work a day in your life.<small><span style="color:var(--default-color);text-shadow:none">- Confucius</span></small></h5>
+
+							<!--Slide 1 Expertise-->
+					    	<h4 class="pt-3 text-center">Areas of expertise</h4>
+							<div class="card-deck">
+								<div class="card">
+									<div class="card-body py-1 text-center">
+										<h5 class="text-center py-1">Research</h5>
+										<ul class="text-left pl-3">
+											<li><span style="color:var(--theme-color)">Data analytics</span> 
+												<ul class="text-left">
+													<li>Classification and regression analyses</li>
+													<li>Screening and sensitivity analyses</li>
+													<li>Latin	Hypercube, Full Factorial, and Monte Carlo sampling approaches</li>
+													<li>System identification methods</li>
+												</ul>
+											</li>
+											<li class="pt-2"><span style="color:var(--theme-color)">Control systems</span>
+												<ul class="text-left">
+													<li>PID and Robust adaptive control</li>
+												</ul>
+											</li>
+											<li class="pt-2"><span style="color:var(--theme-color)">Numerical modeling</span>
+												<ul class="text-left">
+													<li>Finite element analysis</li>
+													<li>Computational fluid dynamics</li>
+												</ul>
+											</li>
+											<li class="pt-2"><span style="color:var(--theme-color)">Machine learning</span>
+												<ul class="text-left">
+													<li>Artificial Neural Network</li>
+													<li>Genetic Algorithm</li>
+													<li>Support Vector Machines</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="w-100 d-none d-sm-block d-md-block d-lg-none">
+									<!-- wrap every 2 on sm-->
+								</div>
+								<div class="card">
+									<div class="card-body py-1">
+										<h5 class="text-center py-1">Acadamic</h5>
+										<ul class="text-left px-3">
+											<li>Statics and dynamics</li>
+											<li>Solid mechanics</li>
+											<li>Fluid Mechanics</li>
+											<li>Continuum mechanics</li>
+											<li>Nanomechanics</li>
+											<li>Fracture Mechanics</li>
+											<li>Linear and nonlinear elasticity</li>
+											<li>Finite element analysis</li>
+											<li>Applied mathematics</li>
+											<li>Structural vibration</li>
+											<li>Composites</li>
+											<li>Adaptive control</li>
+										</ul>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-body mr-2 py-1">
+										<h5 class="text-center py-1">Programming</h5>
+										<ul class="text-left pl-3">
+											<li>Fortran
+												<div class="progress-bar"><span class="fortran"></span></div>
+											</li>
+											<li>Matlab
+												<div class="progress-bar"><span class="matlab"></span></div>
+											</li>
+											<li>Ansys
+												<div class="progress-bar"><span class="ansys"></span></div>
+											</li>
+											<li>Phython
+												<div class="progress-bar"><span class="phython"></span></div>
+											</li>	
+											<li>JMP
+												<div class="progress-bar"><span class="jmp"></span></div>
+											</li>
+											<li>LabView
+												<div class="progress-bar"><span class="labview"></span></div>
+											</li>
+											<li>Mathematica
+												<div class="progress-bar"><span class="mathematica"></span></div>
+											</li>
+											<li>Tinker
+												<div class="progress-bar"><span class="tinker"></span></div>
+											</li>
+											<li>HTML5 & CSS3
+												<div class="progress-bar"><span class="html"></span></div>
+											</li>
+											<li>Microsoft office
+												<div class="progress-bar"><span class="ms"></span></div>
+											</li>
+										</ul>
+									</div>
+								</div>	
+							</div>
+
+						    <!--Slide 2 Education-->
+						    <div class="container px-0 mx-0" style="height: auto">
+						    	<h4 class="py-3 text-center">Education</h4>
+					  			<div class="education-timeline">
+					    			<ul>								
+										<li>
+											<div class="education-timeline-year">
+												2020
+											</div>
+											<div class="education-timeline-content">
+												<div class="education-timeline-text">
+													<h6><strong>Ph.D. (abd status)</strong></h6>
+													<h6>Engineering Mechanics, Virginia Tech, US.</h6>
+													<p>CGP: 3.5/4</p>
+													<h6 class="pt-2"><strong>M.S. (abd status)</strong></h6>
+													<h6>Engineering Mechanics, Virginia Tech, US.</h6>
+													<p>CGP: 3.7/4</p>														
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="education-timeline-year">
+												2010
+											</div>
+											<div class="education-timeline-content">
+												<div class="education-timeline-text">
+													<h6><strong>M.Tech.</strong></h6>
+													<h6>Mechanical System Design, IIT Kharagpur, India.</h6>
+													<p>CGPA: 9.2/10</p>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="education-timeline-year">
+												2008
+											</div>
+											<div class="education-timeline-content">
+												<div class="education-timeline-text">
+													<h6><strong>B.Tech.</strong></h6>
+													<h6>Mechanical Engineering, SRKR Engineering College, India.</h6>
+													<p>Percentage: 72%</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<!--Slide 3- Coursework -->
+							<div class="container py-0 px-0 mx-0" style="height: auto">
+								<h4 class="pt-5 pb-3 text-center">Course work</h4>
+				    			<h5 class="text-left mt-2"><span class="ml-1" style="color:var(--theme-color)"><i class="fas fa-book-open"></i></span> Courses from Virginia Tech, US</h5>
+					    		<div class="row w-100">
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2014
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Adaptive Control Systems
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+										<span style="color:var(--theme-color)">Audit</span>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2014
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Linear Control Theory
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+										<span style="color:var(--theme-color)">Audit</span>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2013
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Mechanical & Struct Vibrations
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2013
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Viscous Flow
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle-highlight">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Fall 2012
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Applied Partial Differential Equations
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Fall 2012
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Nonlinear Elasticity
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle-highlight">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2012
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Finite Element Analysis
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle-highlight">A-</div>
+											<div class="grade-circle">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Fall 2011
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Intro Finite Elements
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Fall 2011
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Intro Continuum Mechanics
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2011
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										SS: Intro to Nanomechanics
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										Spring 2011
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Fracture Mechanics
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle-highlight">A-</div>
+											<div class="grade-circle">A</div>
+									</div>
+								</div>
+								<div class="space"></div>
+								<h5 class="text-left pt-2 mt-2"><span class="ml-1" style="color:var(--theme-color)"><i class="fas fa-book-open"></i></span> Courses from IIT Kharagpur, India</h5>
+								<div class="row w-100">
+									<div class="col-sm-12 col-md-2">Spring 2009</div>
+									<div class="col-sm-12 col-md-4">Finite Element Methods in Engineering</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle-highlight">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Spring 2009</div>
+									<div class="col-sm-12 col-md-4">Tribology</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle-highlight">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Spring 2009</div>
+									<div class="col-sm-12 col-md-4">Composite Materials</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle-highlight">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Spring 2009</div>
+									<div class="col-sm-12 col-md-4">Experimental Stress Analysis</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle-highlight">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Spring 2009</div>
+									<div class="col-sm-12 col-md-4">Envirnmtl Setting of Socio-technical Sys.</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle-highlight">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Fall 2008</div>
+									<div class="col-sm-12 col-md-4">Applied Elasticity and Plasticity</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle-highlight">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Fall 2008</div>
+									<div class="col-sm-12 col-md-4">Fatigue,Creep & Fracture</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle-highlight">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Fall 2008</div>
+									<div class="col-sm-12 col-md-4">Advanced Mechanics of Solids</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle-highlight">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Fall 2008</div>
+									<div class="col-sm-12 col-md-4">Machine Vibrational Analysis</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle-highlight">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+									<div class="space"></div>
+									<div class="col-sm-12 col-md-2">Fall 2008</div>
+									<div class="col-sm-12 col-md-4">Machinery Fault Diagnostics & Signal Processing</div>
+									<div class="col-sm-12 col-md-6">
+										<div class="grade-circle">F</div>
+										<div class="grade-circle">D</div>
+										<div class="grade-circle">C</div>
+										<div class="grade-circle-highlight">B</div>
+										<div class="grade-circle">A</div>
+										<div class="grade-circle">Ex</div>
+									</div>
+								</div>
+							</div>
+
+						    <!--Slide 4 Experience-->
+						    <div class="container px-0 mx-0" style="height: auto">
+					    		<h4 class="pt-5 pb-3 text-center">Experience</h4>
+						    	<h5 class="text-left py-2"><span class="pr-2" style="color:var(--default-color)"><i class="fas fa-chalkboard-teacher"></i></span>Teaching experience</h5>
+						    	<div class="row w-100">
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jan '15 - May '18</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+										<h6><span style="color: var(--theme-color)">Teaching Assistant</span> - Physics-2305,2306</h6>
+										<p><em>Instructor:</em> Dr. Travis Merritt, Virginia Tech, US.</p>
+										<p><em>Softwares:</em> Capstone, Canvas, MS office</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Independently and enthusiastically taught physics labs of 36 undergraduate students for 2 sections for 3 years 5 months.</li>
+											<li>Graded 72 papers and performed data entry tasks every week.</li>
+											<li>Proctored exams biweekly by ensuring the academic integrity of all students to have a fair and equal opportunity to succeed.</li>
+											<li>Provided one-on-one and small group feedback support to reinforce fundamental concepts of physics, to help complete lab assignments and to create a comfortable and friendly environment for student's growth.</li>
+											<li>Formulated and implemented an effective teaching philosophy and resulted in strong supportive feedback from students. 
+											</li>
+											<div class="btn-wrapper px-0 py-0">
+												<a href="#teaching"><span>Learn more</span></a>
+											</div> 
+										</ul>
+									</div>
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jan '14 - Dec '14</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+										<h6><span style="color: var(--theme-color)">Teaching Assistant</span> - Statics, Dynamics</h6> 
+										<p><em>Instructor:</em> Dr. Scott Hendricks, Virginia Tech, VA.</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Provided one-on-one and small group feedback support to reinforce fundamental concepts in common office hours.</li>
+											<li>Proctored exams biweekly by ensuring the academic integrity of all students to have a fair and equal opportunity to succeed.</li>
+										</ul>
+									</div>					
+								</div>
+
+								<h5 class="text-left py-2"><span class="pr-2" style="color:var(--default-color)"><i class="fas fa-suitcase"></i></span>Work experience</h5>
+								<div class="row w-100">
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jan '11 - Dec '14</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+										<h6 style="color: var(--theme-color)">Research Assistant</h6>
+										<p><strong>Project:</strong> Develop control strategies for atmospheric plasma spray process</p> 
+										<p><em>P.I.:</em> Prof. R. C. Batra, Virginia Tech, US.</p>
+										<p><em>Sponsor:</em> Rolls Royce, Indianapolis, US.</p>
+										<p><strong>Software:</strong> Matlab, Fortran, JMP, MS office</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>
+												Conducted deep research on the effects of human factors and noise variables in plasma sprayed coatings on the turbine blades of aero engines and the necessity of robust adaptive control designs to attenuate those effects.
+											</li>
+											<li>
+												Numerically simulated and validated plasma spray process within 15% accuracy using Fortran code to investigate the influences of process parameters and noise variables on particles' states before impacting the substrates.
+											</li>
+											<li>
+												Developed elaborate process maps to visualize and to quantify the non-linear relationships between inputs and outputs using statistical approaches with Matlab and JMP.
+											</li>
+											<li>
+												Developed optimization algorithm which predicts required inputs to achieve desired outputs within 5% accuracy.
+											</li>
+											<li>
+												Collaborated weekly with a university-affiliated research team and presented detailed reports to sponsors by biweekly manner.
+											<li>
+												Collaborated with Sulzer Metco for on-site experimentation and testing.
+											</li>
+											<li>
+												This resulted in a peer-reviewed publication, a poster, and an oral presentation.
+											</li>
+											<div class="btn-wrapper px-0 py-0">
+												<a href="#research"><span>Learn more</span></a>
+											</div>
+										</ul>
+									</div>
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jun '10 - Dec '10</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<h6 style="color: var(--theme-color)">Senior Research Fellow</h6>
+											<p><strong>Project:</strong> Development of virtual lab - Mechanical Systems and Signal Processing</p>
+											<p>P.I.: Prof. A. R. Mohanty, IIT Kharagpur, India.</p>
+											<p><em>Sponsor:</em> Ministry of human resource and development, India.</p>
+											<p><strong>Softwares:</strong> LabView, HTML5, MS Office.</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Independently designed and developed 8 virtual lab experiments in signal processing for remote access. 
+											</li>
+											<li>Prepared very informative and interactive web-based lab manuals and study materials to conduct these experiments.</li>
+											<li>Designed UI based stand-alone modules in LabView platform to analyze and extract important features of 1st and 2nd order mechanical systems in time and frequency domains.
+											</li>
+											<div class="btn-wrapper px-0 py-0">
+												<a href="#research"><span>Learn more</span></a>
+											</div> 
+										</ul>
+									</div>
+								</div>	
+
+								<h5 class="text-left py-2"><span class="pr-2" style="color:var(--default-color)"><i class="fas fa-building"></i></span>Organizational experience</h5>
+								<div class="row w-100">
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jan '12 - Dec '13</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<h6 style="color: var(--theme-color)">Director of Finance</h6>
+										    <p>Graduate student Assembly (GSA), Virginia Tech, US.</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Overseen all financial aspects (~ $50k) within GSA which is a governing body of nearly 6000 graduate students.</li>
+											<li>Implemented effective strategies to generated additional income from social events resulting in a surplus of nearly 40% of budget 2012 and 2013.</li>
+											<li>Drafted and approved of the annual budget for GSA by the university assembly.</li>
+											<li>Prepared timely and detailed reports of budget weekly.</li>
+											<li>Advised both the executive council and the university assembly regarding financial situation and forecasts on the biweekly manner.</li>
+											<li>Maintained accounts and records of all GSA financial transactions, deposits, and disbursements.</li>
+											<li>Awarded Who's who among students in American universities & colleges for 2013 and 2014 for outstanding student leadership</li>
+										</ul>
+									</div>
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block">Jan '12 - Dec '13</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+										<h6 style="color: var(--theme-color)">Member</h6>
+										<p>University Advisory Council on Strategic Budgeting and Planning, Virginia Tech, VA.</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Represented GSA in University Council Commissions and Committee.</li>
+										</ul>
+									</div>
+									<div class="col-sm-12 col-md-2">	
+										<h6 class="year-block">Aug '11 - Dec '13</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<h6 style="color: var(--theme-color)">Member</h6>
+											<p>RSO-Budget Board, Virginia Tech, VA.</p>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>RSO-Budget Board oversees the budget allocation process of registered student organizations and programs to enrich the experiences and exposure of the students.</li>
+											<li>Review and vote the budget requests from student organizations.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+						    <!--Slide 5 - Publications -->
+						    <div class="container py-0 px-0 mx-0" style="height: auto">
+								<h4 class="pt-5 pb-3 text-center">Publications</h4>
+								<div class="row w-100">
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block" style="width: 4rem;">2020</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<p class="pb-0"><strong>B. Guduri</strong>, M. Cybulsky, G.R. Pickrell, and R.C. Batra. <span style="color: var(--theme-color)">Development of Adaptive Process Control to Achieve Consistent Particles’ States in Atmospheric Plasma Spray Process</span>, Journal of Thermal Spray Technology (<strong>in submission</strong>).</p>
+											<div class="container py-0 px-0">
+											<!-- Button to trigger modal -->
+												<h6 class="btn-wrapper">
+													<a href="#abstract1" data-toggle="modal"><span>Abstract</span></a>
+												</h6>
+												 
+												<!-- Modal -->
+												<div class="modal fade" id="abstract1" data-backdrop="false" tabindex="-1" role="dialog">
+													<div class="modal-dialog modal-lg" style="width: 80%;">
+														<div class="modal-content" style="color:var(--default-color); background-color: var(--main-bg-color) !important; border-color: var(--on-color)">
+												    		<div class="modal-header">
+												    			<h6 class="modal-title" style="color: var(--h4-color)">Development of Adaptive Process Control to Achieve Consistent Particles’ States in Atmospheric Plasma Spray Process</h6>
+												    			<button type="button" style="color:var(--theme-color);" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												    		</div>
+												    		<div class="modal-body" style="height: 80%">
+																The desired consistency in quality of atmospheric plasma spray (APS) coatings is crucial in many applications, which is difficult to achieve due to the complexity of the APS process. It has been established that the consistency in mean particles’ states such as mean axial velocity and mean temperature before impact on the substrate is a key aspect of achieving consistent coating quality. In this paper, an attempt is made to develop an adaptive process control to achieve consistency in mean particles’ states. The strategy is first to predict the optimal inputs for desired mean particles’ states and minimize the error between the measured and the desired mean particles’ states by adjusting significant inputs when a parameter drift occurs.  The analyses are carried out using LAVA-P, numerical software simulates the APS process. First, screening analysis using one-factor-at-a-time (OFAT) approach by Morris is carried out to investigate the significance of seven process parameters: current, argon and hydrogen flow rates, injector location, powder feed rate, and stand-off distance on the mean particles’ states. This analysis suggests that the significant process parameters for the mean particles’ states are argon and hydrogen flow rates, current, and injector location from the jet axis. Using linear regression analysis, quadratic response functions for the mean particles’ states are identified in terms of these significant process parameters. These functions are used to construct an objective function and optimization problem is solved by genetic algorithm for finding optimal values of argon flow rate, hydrogen flow rate and current for a given location of injector. It is found that these optimal values achieve mean particles’ states within 5% their prescribed desired ones. These optimal values are used to estimate initial gains for proposed adaptive process control and its performance is tested on LAVA-P to attenuate the influence of artificially induced disturbances such as average injection velocity of particles and arc voltage on the mean particles’ states. The mean particles’ states are reached desired values within the settling time of 50 ms by mitigating the effect of disturbances and the smooth variation in the inputs and the mean particles’ states are obtained.
+												    		</div>
+												    		<div class="modal-footer">
+												      			<h6 class="btn-wrapper mb-0">
+																	<a data-dismiss="modal"><span>Close</span></a>
+																</h6>
+												    		</div>
+												  		</div>
+													</div>
+												</div><!-- /.modal -->  
+											</div>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Numerically simulated plasma jet formation and particle injection and their interaction with jet for plasma spray process with an accuracy of 15%.</li>
+											<li>Conducted a screening analysis to identify important process parameters and developed elaborate process maps and response function between inputs and outputs.</li>
+											<li>Predicted required process parameters for desired outputs within an accuracy of 5% using genetic algorithm and response functions</li>
+											<li>Designed an adaptive process adaptive control to get desired consistency in outputs by attenuating external disturbances</li>
+											<li>Achieved consistency in mean particles’ states within the settling time of 50 ms by mitigating the effect of disturbances and the smooth variation in the inputs and the mean particles’ states are obtained.</li>
+										</ul>
+									</div>
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block" style="width: 4rem;">2014</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<p>Fatima, S., <strong>B. Guduri</strong>, A. R. Mohanty, and V. N. A. Naikan, <span style="color: var(--theme-color)">Transducer invariant multi-class fault classification in a rotor-bearing system using support vector machines</span>, Measurement 58 (2014): 363-374.</p>
+											<h6 class="btn-wrapper px-0 py-0">
+												<a href="https://www.sciencedirect.com/science/article/pii/S0263224114003613" target="_blank"><span>Full article</span></a>
+											</h6>	       
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>Designed software to classify faults in a rotor-bearing system using support vector machines</li>
+											<li>Extracted 12 statistical features in the time domain from raw data for every transducer.</li>
+											<li>Identified the most important features for selection among 84 features (7 transducers x 12 time features).</li>
+											<li>Investigated validity and reliability of the classification results and The standard deviation of all the classification rates are less than 1.5%.</li>
+											<li>Designed software classifies the faults with a classification rate of more than 75% if a single transducer is used and nearly 100% if seven transducers are used.</li>
+										</ul> 
+									</div>					
+									<div class="col-sm-12 col-md-2">
+										<h6 class="year-block" style="width: 4rem;">2014</h6>
+									</div>
+									<div class="col-sm-12 col-md-4">
+											<p>Shang, S., <strong>B. Guduri</strong>, M. Cybulsky, and R. C. Batra, <span style="color:var(--theme-color)">Effect of turbulence modulation on three-dimensional trajectories of powder particles in a plasma spray process</span>, Journal of Physics D: Applied Physics 47, no. 40 (2014): 405206</p>
+											<h6 class="btn-wrapper py-0 px-0">
+												<a href="https://iopscience.iop.org/article/10.1088/0022-3727/47/40/405206/meta"  target="_blank"><span>Full article</span></a>
+											</h6>
+									</div>
+									<div class="col-sm-12 col-md-6">
+										<ul>
+											<li>We have numerically solved the system of nonlinear and coupled partial differential equations expressing the conservation of mass of species, the total mass, linear momentum and energy, as well as the k–ε turbulence model under pertinent initial and boundary conditions.</li>
+										 	<li>We have introduced modeling effects of the carrier gas and the turbulence modulation introduced which have not been considered in most previous two-dimensional and many three-dimensional studies.</li>
+										 	<li>Consideration of turbulence modulation reduces the turbulent kinetic energy and its dissipation rate by more than 30% and 40%, respectively, in regions where particles are concentrated.</li>
+										</ul>
+									</div>					
+								</div>
+							</div>
+
+						    <!-- Slide 6 - Other achievements -->
+					    	<h4 class="pt-5 pb-3 text-center">Other achievements</h4>
+				    		<div class="timeline">
+				    			<ul>								
+									<li>
+										<div class="timeline-year">
+											2015
+										</div>
+										<div class="timeline-content">
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-flag"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color)">Oral presentation</h6>
+												<h6>Control strategies to achieve consistent particles' characteristics in an atmospheric plasma process</h6>
+												<p>Virginia Tech 14th annual graduate student research symposium (BEAM Symposium), May 13, 2015, Virginia Tech, US.</p>
+											</div>
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-flag"></i></span>
+											</div>
+											<div class="timeline-content">
+												<h6 style="color: var(--theme-color)">Poster presentation</h6>
+												<h6>Control strategies to achieve consistent particles' characteristics in an atmospheric plasma process</h6>
+												<p>Society of Engineering Science Conference, 52nd annual technical meeting, Texas A& M, Houston, US.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">
+											2014
+										</div>
+										<div class="timeline-content">
+											<div class="timeline-icon">
+												<span ><i class="fas fa-2x fa-award"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color)">Who's who among students in American universities & colleges</h6>
+												<p>One of 17 student honorees from Virginia Tech for outstanding academic achievement and student leadership</p>
+											</div>
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-flag"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color)">Poster presentation</h6>
+												<h6>Developing control strategies to produce plasma spray coatings of consistent quality</h6>
+												<p>Rolls Royce, Indianapolis, US.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">
+											2013
+										</div>
+										<div class="timeline-content">
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-award"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color)">Who's who among students in American universities & colleges</h6>
+												<p>One of 17 student honorees from Virginia Tech for outstanding academic achievement and student leadership</p>
+											</div>
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-flag"></i></span>
+											</div>
+											<div class="timeline-content">
+												<h6 style="color: var(--theme-color)">Poster presentation</h6>
+												<h6>Active process control system of atmospheric plasma spray process using support vector machines</h6>
+												<p>USNCCM12-Continuum theories for modeling atomic scale physics, Raleigh, US.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">
+											2009
+										</div>
+										<div class="timeline-content">
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-flag"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color">Oral presentation</h6>
+												<h6>A virtual internal bond method for the estimation of crack growth behavior of nanomaterials</h6>
+												<p>Indian Society of Theoretical and Applied Mechanics (ISTAM), New Delhi, India.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">
+											2008
+										</div>
+										<div class="timeline-content">
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-award"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color">Award</h6>
+												<h6>All India Rank - 112</h6>
+												<p>Nation-wide competitive examination, GATE 2008, with 99.38 percentile.</p>
+											</div>
+											<div class="timeline-icon">
+												<span class="text-right"><i class="fas fa-2x fa-medal"></i></span>
+											</div>
+											<div class="timeline-content">
+												<h6 style="color: var(--theme-color">Medal</h6>
+												<h6>Third prize in Volleyball</h6>
+												<p>Open IIT competition, IIT Kharagpur, India.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">
+											2007
+										</div>
+										<div class="timeline-content"> 
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-medal"></i></span>
+											</div>
+											<div class="timeline-text"> 
+												<h6 style="color: var(--theme-color">Medal</h6> 
+												<h6>First prize in Volleyball</h6>
+												<p>Vignan Mahotsav - National level youth festival, Guntur, India.</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="timeline-year">	
+											2006
+										</div>
+										<div class="timeline-content">												
+											<div class="timeline-icon">
+												<span><i class="fas fa-2x fa-medal"></i></span>
+											</div>
+											<div class="timeline-text">
+												<h6 style="color: var(--theme-color">Medal</h6>  
+												<h6>Second prize in PPT competition</h6> 
+												<p>SRKR Engineering College, Bhimavaram, India.</p>
+											</div>
+										</div>
+									</li>
+									<div style="clear:both">
+									</div>
+								</ul>
+							</div>
+					</div>
+				</div>
+			</section><!-- End of resume -->				
+
+
+			<!-- Page - research -->
+			<section id="research" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-md-12 col-lg-1">
+						<h2 class="slide-title-text">- Research -</h2>
+					</div>
+					<div class="container py-0 col-md-12 col-lg-11">
+						<!-- Slide 1 -->
+				    	<div class="container px-0 py-3" style="height:auto">
+				    		<h5 class="text-center font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Research is what I'm doing when I don't know what I'm doing. <small><span style="color:var(--default-color);text-shadow:none">- Wernher von Braun</span></small></h5>
+					    	<h4 class="pt-3 text-center">Projects</h4>
+					    	<div class="container py-0 px-0">
+								<div class="row pt-3">
+									<div class="card-deck mx-2 my-2">
+										<div class="card mb-4" style="height: 10rem">
+											<h6 class="card-text">Numerical modeling of plasma spray process</h6>
+											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
+												<source src="img/aps-full.mp4" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
+										</div>
+										<div class="card mb-4" style="height: 10rem">
+											<h6 class="card-text">Screening of process parameters</h6>
+											<span class="card-img-container">
+												<img style='height: 100%; width: 100%; object-fit: cover' src="img/screening.png">
+											</span>
+										</div>
+        								<div class="w-100 d-none d-sm-block d-md-none">
+        									<!-- wrap every 2 on sm-->
+        								</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">Process parameter optimization</h6>
+											<span class="card-img-container">
+												<img style='height: 100%; width: 100%; object-fit: cover' src="img/process-maps.png">
+											</span>
+										</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">System identification in plasma spray process</h6>
+											<a href="#system-ident"><span class="card-img-container">
+												<img style='height: 100%; width: 100%; object-fit: cover' src="img/system-asp.png">
+											</span></a>
+										</div>
+										<div class="w-100 d-none d-sm-block d-md-block d-lg-block">
+											<!-- wrap every 4 on md-->
+										</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">Design of robust adaptive process control</h6>
+											<span class="card-img-container">
+												<img style='height: 100%; width: 100%; object-fit: cover' src="img/aps-control.png">
+											</span>
+										</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">Multi-class classification using support vector machines</h6>
+											<span class="card-img-container">
+												<img style='height: 100%; width: 100%; object-fit: cover' src="img/classification.png">
+											</span>
+										</div>
+										<div class="w-100 d-none d-sm-block d-sm-block d-md-none">
+        									<!-- wrap every 2 on sm-->
+        								</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">Course project: Nanomechanics </h6>
+											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
+												<source src="img/nanomechanics.mp4" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
+										</div>
+										<div class="card mb-4" style="height: 10rem;">
+											<h6 class="card-text">Design of a virtual lab - MSSP</h6>
+											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
+												<source src="img/mssp_1.mp4" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
+										</div>
+										<div class="w-100 d-none d-sm-block d-md-block d-lg-block">
+											<!-- wrap every 4 on md-->
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div><!-- End of slide 1-->
+
+					    <!-- Slide 2 -->
+					    <div class="container px-3" style="height:auto;">
+					    	<h4 class="pt-5 pb-2 text-center">Extent of softwares used and areas explored</h4>
+					        <div id="sankey_multiple" style="display: block; width: 60rem; height: 30rem;"></div>
+					    </div><!-- End of Slide 2 -->
+
+					    <!-- Slide 3 -->
+						<div id="system-ident" class="container px-0" style="height:auto;">
+					    	<h4 class="pt-5 pb-2 text-center">Numerical modeling of plasma spray process</h4>
+					    	<div class="container py-0" style="overflow: hidden">
+					    		<div class="row container py-0 px-0">
+					    			<div class="container pt-2 col-sm-12 col-lg-7 text-center" style="overflow: hidden;">
+										<div id="caroselProject1" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+											    <div class="carousel-item active">
+											    	<img class="d-block w-100" src="img/project1-1.png" alt="First slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-2.png" alt="Second slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-3.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-4.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-5.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-6.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-7.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-8.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-9.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-10.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-11.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-12.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-13.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project1-14.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-15.png" alt="Third slide">
+											    </div>
+											     <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-16.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-17.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-18.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-19.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-20.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-21.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-22.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											     	<img class="d-block w-100" src="img/project1-23.png" alt="Third slide">
+											    </div>
+											</div>
+
+											<a class="carousel-control-prev" href="#caroselProject1" role="button" data-slide="prev">
+												<span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+												<span class="sr-only">Previous</span>
+											</a>
+											<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject1" role="button" data-slide="next">
+												<span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+												<span class="sr-only">Next</span>
+											</a>
+										</div>
+					    			</div>
+					    			<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+					    				<p>Over the last two decades, atmospheric plasma spray (APS) process became one of the most efficient and reliable techniques to produce a wide variety of coatings such as low porosity, thermal barrier, wear and corrosive resistant coatings in different applications [1]. A large variety of powder materials can be used to spray since these materials can efficiently melt due to the high temperature of the plasma jet. The APS process is a common technique to produce ceramic coatings, and is capable of producing functionally graded material coatings [2]. Because of cost efficiency and versatility, numerous industries have adopted this process to produce high-performance coatings [3]. Due to the demand on high volume manufacturing of these coatings, reproducibility and repeatability of the coating quality are prime importance [4].</p>
+
+					    				<p class="pt-3">The APS process is complex  process includes plasma generation, plasma and in-flight particle interaction and deposit formation on a substrate. Complex interactions between plasma and particles significantly [4], [5] vary coating properties that affect the process repeatability [6]. Due to large velocity and temperature gradients in a plasma jet, even small changes in process parameters can significantly alter mesan particles’ states (mean temperature and axial velocity at the instant of striking the substrate), and thus the quality of the coatings [7]. Even with the operating parameters apparently set constant during the process, the particles’ states before impacting the substrate can change over time due to noise variables such as nozzle wear, injector wear, pulsing of powder due to leaks, worn parts in the powder feeder and powder dampness. These fluctuations and noise variables could limit the applicability of an APS process to high precision applications. The motivation, then, for the development of adaptive process control for achieving desired consistency in the mean particles’ states before impacting the substrate is to improve repeatability and reproducibility of coating quality and simultaneously decreasing manufacturing costs.</p>
+
+					    				<p class="pt-3">Due to lack of experimental set-up, we carried out the analyses using fortran code, LAVA-P, which wad developed at the Idaho National Engineering and Environmental Laboratory (INEEL) to simulate APS process. The numerical simulations are inexpensive as compared to manufacturing and material cost and enable us to explore a large variable space. The LAVA-P software simulates the Ar – H<sub>2</sub> plasma jet along with particle injection, acceleration, melting, re-solidification and evaporation. The following assumptions are made to simulate the APS process:</p>
+					    				<ol>
+					    					<li>The Ar – H<sub>2</sub> plasma jet is an axisymmetric, unsteady, compressible, Newtonian, turbulent, and chemically reacting multi-component fluid mixture with temperature-dependent thermodynamic and transport properties [30].</li> 
+											<li>Plasma is in local thermodynamic equilibrium (LTE).</li>
+											<li>Chemical reactions among different species including ionization, dissociation, and recombination are considered.</li>
+											<li>The plasma generation in the nozzle is not simulated.</li> 
+											<li>The arc voltage fluctuations in the plasma nozzle are not considered, and the mean voltage is assumed to be steady.</li>
+											<li>Effects of the electromagnetic field in the plasma are neglected.</li>
+											<li>The standard turbulence is considered and turbulence modulation is neglected.</li>
+											<li>The effect of powder injector geometry is not considered.</li>
+											<li>The particles are assumed as spherical.</li>
+											<li>The effects of gravity and buoyancy on the plasma jet and particle trajectories are neglected. These forces are negligible compared to viscous drag force [31], [32].</li>
+											<li>The effect of internal convection within the molten particles is neglected.</li>
+											<li>No mutual interactions among particles occur.</li> 
+											<li>The surface of particles is not oxidized.</li>
+											<li>The effect of carrier gas flow rate on plasma jet is neglected. It was emphasized that the carrier gas flow rate of 5 slm (Standard Liter per Minute) has a negligible effect on the plasma characteristics [5].</li>
+											<li>Zirconia powder is considered.</li>
+											<li>For particle heating, 1D heat conduction model with melting, solidification, and evaporation are considered.</li>
+											<li>The randomness of the particle injection is considered.</li>
+										</ol>
+										<p class="pt-3">The detailed description of the governing equations with initial and boundary conditions of the plasma generation are described in [30]. The Ar-H<sub>2</sub> plasma jet profile computed using LAVA-P has been validated by Ramshaw et al. for the Metco 9MB plasma gun in [30]. Here, we compare computed results with the experimental findings of Williamson et al. for the Miller SG-100 plasma gun [33] when pure Ar is used to generate the plasma. The L<sub>2</sub>-norm of differences between the computed and the experimental results are less than 29.2%. The simulated values of the mean axial velocity and the mean temperature are compared with experimental results of Smith et al. [34] and the computed results agree well with the corresponding experimental ones with the maximum difference between the two being 7%.</p>
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div><!--End of Slide 3 -->
+
+					    <!-- Slide 4 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Screening of process parameters</h4>
+					    	<div class="container py-0" style="overflow: hidden">
+					    		<div class="row container py-0 px-0">
+					    			<div class="container pt-2 col-sm-12 col-lg-7 text-center">
+										<div id="caroselProject2" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+											    <div class="carousel-item active">
+											    	<img class="d-block w-100" src="img/project2-1.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-2.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-3.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-4.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-5.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-6.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-7.png">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-8.png">
+											    </div>
+												<div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project2-9.png">
+											    </div>
+											</div>
+											<a class="carousel-control-prev" href="#caroselProject2" role="button" data-slide="prev">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+											    <span class="sr-only">Previous</span>
+											</a>
+											<a class="carousel-control-next" href="#caroselProject2" role="button" data-slide="next">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+											    <span class="sr-only">Next</span>
+											</a>
+										</div>
+									</div>
+									<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+										<p class="pt-2">The screening analysis for plasma spray process is done by ranking the strength of the impact of process parameters (inputs) on the mean particles’ states (outputs). The outcome of this screening analysis is a list of significant process parameters, which are used for indentifying response functions for the mean particles’ states. </p>
+
+										<p class="pt-2">Here, we focus on seven process parameters, which are current, argon flow rate, hydrogen flow rate, powder feed rate, spraying distance, injector location along the jet (y-) axis and along (z-) axis. We use the global one-factor-at-a-time (OFAT) screening analysis proposed by Morris 
+												<a class="reference">[1].
+												<span class="referencetext">[1] M. D. Morris, “Factorial sampling plans for preliminary computational experiments,” Technometrics, vol. 33, no. 2, pp. 161–174, 1991.</span></a>
+										This analysis provides a ranking of the effects of process parameters on the mean particles states which are a) negligible b) linear and additive, or c) nonlinear and/or involved in interactions with other process parameters. This is done by calculating so-called elementary effects (EE) of the randomly chosen value of each process parameter at a time on the mean particles states.</p>
+
+										<p class="pt-2">Based on this approach, the argon flow rate, the current, the y location of the injector and the hydrogen flow rate are considered as significant process parameters for developing response functions.</p>
+									</div>
+								</div>
+							</div>
+					    </div><!-- End of Slide 4 -->
+
+					    <!-- Slide 5 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Process parameter optimization</h4>
+					    </div><!-- End of Slide 5 -->
+
+					    <!-- Slide 6 -->
+						<div id="system-ident" class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">System identification in plasma spray process</h4>
+					    	<div class="container py-0" style="overflow: hidden">
+					    		<div class="row container py-0 px-0">
+					    			<div class="container pt-2 col-sm-12 col-lg-7 text-center">
+										<div id="caroselProject4" class="carousel slide" data-ride="carousel">
+											<ol class="carousel-indicators">
+											    <li data-target="#caroselProject4" data-slide-to="0" class="active"></li>
+											    <li data-target="#caroselProject4" data-slide-to="1"></li>
+											    <li data-target="#caroselProject4" data-slide-to="2"></li>
+											    <li data-target="#caroselProject4" data-slide-to="3"></li>
+											    <li data-target="#caroselProject4" data-slide-to="4"></li>
+											    <li data-target="#caroselProject4" data-slide-to="5"></li>
+											    <li data-target="#caroselProject4" data-slide-to="6"></li>
+											    <li data-target="#caroselProject4" data-slide-to="7"></li>
+											    <li data-target="#caroselProject4" data-slide-to="8"></li>
+											    <li data-target="#caroselProject4" data-slide-to="9"></li>
+											    <li data-target="#caroselProject4" data-slide-to="10"></li>
+											</ol>
+											<div class="carousel-inner">
+											    <div class="carousel-item active">
+											    	<img class="d-block w-100" src="img/project4-1.png" alt="First slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-2.png" alt="Second slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-3.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-4.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-5.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-6.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-7.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-8.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-9.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-10.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project4-11.png" alt="Third slide">
+											    </div>
+											</div>
+											<a class="carousel-control-prev" href="#caroselProject4" role="button" data-slide="prev">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+											    <span class="sr-only">Previous</span>
+											</a>
+											<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject4" role="button" data-slide="next">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+											    <span class="sr-only">Next</span>
+											</a>
+										</div>
+					    			</div>
+					    			<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+					    				<p>In an atmospheric plasma spray process, several physical phenomena such as chemical reactions among species; turbulence in plasma jet; particle heating, melting, and vaporization; and particle acceleration are involved. Due to the complexity of the process, finding an exact differential equation between inputs and outputs is one of the challenging issues for developing an efficient control system.</p>
+
+					    				<p class="pt-3">One can develop approximate mathematical models between the inputs and the outputs based on the known information, which are classified into black box, grey box or white box model. The black model (E.g. ANN) implies the model is estimated based on the input-output data without any prior information about the structure of a physical plant. The grey box model implies that the model is developed from the structure of plant dynamics and its parameters are estimated using identification techniques from input-output data. In the white box model, the structure and its parameters are already known from physics. We focus on developing a grey model for mean particles’ states since particles' axial velocity and temperature are governed by particle acceleration and 1D heat conduction model, respectively. The structure of this model is obtained by linearization of nonlinear dynamics of particle states around an equilibrium point. This linear model would possess the information about steady-state and transient behavior of the mean particles’ states when the inputs have changed from an equilibrium point. The coefficients of the linear model can be estimated by the system identification approach using the given input-output data.</p>
+										
+										<p class="pt-3">To estimate these coefficients, we used the following steps:
+											<ol>
+												<li>Designed numerical experiments randomly from Latin hypercube sampling using sufficiently rich input signals to excite the plant dynamics around an operating point.</li>
+												<li>Simulated mean particles states from LAVA-P software for chosen inputs’ variations</li>
+												<li>Estimated the coefficients of linearized models using input-output data from simulations based on the prediction error minimization (PEM) framework.</li>
+												<li>Validated the estimated models using input-output data which was not used for the estimation.</li>
+											</ol>
+					    				</p>
+
+					    				<p class="pt-3">The estimation of coefficients of linearized models is carried out using the MATLAB toolbox ‘ident’ with function ‘ssest’. The responses of estimated models of the mean axial velocity are shown in good agreement with the given output data with an average fit percentage of 85 % for training and 82 % for validation. Whereas for the mean temperature, the responses of the estimated models satisfactorily agree with 72 % for training and 66 % for validation. The estimated parameters for the mean axial velocity and the mean temperature of 50 samples are distributed closer to each other with a few outliers.</p> 
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div><!-- End of Slide 6 -->
+
+					    <!-- Slide 7 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Design of robust adaptive process control</h4>
+					    </div><!-- End of Slide 7 -->
+
+					    <!-- Slide 8 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Multi-class classification using SVMs</h4>
+					    </div><!-- End of Slide 8 -->
+
+					    <!-- Slide 9 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Course project: Nanomechanics</h4>
+					    	<div class="container py-0" style="overflow: hidden">
+					    		<div class="row container py-0 px-0">
+					    			<div class="container pt-2 col-sm-12 col-lg-7 text-center">
+										<div id="caroselProject7" class="carousel slide" data-ride="carousel">
+											<div class="carousel-inner">
+											    <div class="carousel-item active">
+											    	<img class="d-block w-100" src="img/project7-1.png" alt="First slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-2.png" alt="Second slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-3.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-4.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-5.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-6.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-7.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-8.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-9.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-10.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-11.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-12.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-13.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-14.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-15.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-16.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-17.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-18.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-19.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-20.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-21.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-22.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-23.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-24.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-25.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-26.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-27.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-28.png" alt="Third slide">
+											    </div>
+											    <div class="carousel-item">
+											    	<img class="d-block w-100" src="img/project7-29.png" alt="Third slide">
+											    </div>
+											</div>
+											<a class="carousel-control-prev" href="#caroselProject7" role="button" data-slide="prev">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+											    <span class="sr-only">Previous</span>
+											</a>
+											<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject7" role="button" data-slide="next">
+											    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+											    <span class="sr-only">Next</span>
+											</a>
+										</div>
+					    			</div>
+					    			<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+					    				<h6 class="pt-2"> Dynamics of water confinement between two graphene sheets </h6>
+					    				<p class="text-right">Souvick Chatterjee, Balachandar Guduri, Nejib Masghouni</p>
+					    				<p class="pt-2"> At the nanoscale, structural and dynamical properties are quite different from the macroscopic phenomena. Fluid flow between parallel plates, a common problem in
+										bulk-liquid, is still not well-understood in the atomic scale. Characteristics like diffusion, solvation of biomolecules are important phenomena relying on the problem studied herewith. In this work, we studied in detail the effect of two parallel graphene  sheets confining a solvation box within. Based on potential energy comparison, hydrophobicity/hydrophilicity of the system has been analyzed. Also, the effect of different axial and perpendicular initial velocities of one/two graphene sheet(s) on characteristics of the system have been discussed.</p>
+
+										<p class="pt-2"> The results obtained in this work opens up a whole area of field which deserves attention. Interesting phenomena are observed through MD simulations which is obviously not uncommon provided the scale we are dealing with. Both physical explanation and MD results should converge in the long run providing a thorough understanding of such nano-scale phenomena. </p>
+
+										<p class="pt-2">Such a problem of water confinement between hydrophobic surfaces is
+										in itself an interesting phenomenon. To add to that, the application of velocity in different directions, physically perturbing the well-known Couette flow configuration can explain properties like slip, molecular diffusion, and interfacial characteristics. Also, of considerable interest is finding the thermal conductivity of such a configuration and potential usage of the same in nano-scale heat transfer problems. Not only graphene sheets but analysis of general Couette flow can also be generalized as carbon sheet-water interaction problem and can be used to solve problems like Couette flow in cylindrical coordinates, an example of which is water confinement between multi-walled carbon nanotube, with an applied initial velocity to one of the nanotubes.</p>
+
+					    			</div>
+					    		</div>
+					    	</div>
+					    </div><!-- End of Slide 9 -->
+
+					    <!-- Slide 10 -->
+					    <div class="container px-0" style="height:auto">
+					    	<h4 class="pt-5 pb-2 text-center">Design of a virtual lab - MSSP</h4>
+					    </div><!-- End of Slide 10 -->
+					</div> 
+				</div>
+			</section><!-- End of teaching -->
+
+
+			<!-- Page - teaching -->
+			<section id="teaching" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-sm-12 col-lg-1">
+						<h2 class="slide-title-text">- Teaching -</h2>
+					</div>
+					<div class="container py-0 col-sm-12 col-lg-11">
+						<!--Slide 1 -->
+						<div class="container py-2 px-0" style="height: auto">
+				    		<h4 class="pt-3 text-center">My teaching philosophy</h4>
+				    		<div class="row">
+					    		<div class="col-sm-12 col-md-12 col-lg-6">
+					    			<span class="image"><img style="width: 100%;" src="img/wordart_4.png"></span>
+					    			<h5 class="text-left pl-3 pt-5 font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Tell me and I forget. Teach me and I remember. Involve me and I learn.</h5>
+					    		    <h6 class="text-right pr-5"> - Benjamin Franklin</h6>
+					    		</div>
+				    			<div class="col-sm-12 col-md-12 col-lg-6">
+				    				<div class="container px-0 py-0 text-left">
+										<p style="-webkit-transition: all 1s ease-out; transition: all 2s ease-out; ">
+											My experiences in the classroom, both as a teaching assistant and as a student, have taught me that students’ success in the classroom  depends not only on the quality of instruction but also on the teaching style. Over the years, I have formulated my teaching philosophy by developing my own teaching techniques as well as incorporating some of the best practices from my professors. First and foremost, as it was followed by great teachers, I have learned to recognize and embrace diversity not only from a socioeconomic or ethnic perspective but also diversity in terms of different learning abilities of every student. I try my best to adapt my teaching style to the learning style of every student. Secondly, I clearly communicate with the students in terms of the course curriculum, procedures, and overall expectations to help them to manage their workload and be successful. Furthermore, I have experienced that establishing a comfortable environment in the classroom and during office hours encourages students to actively engage and ask questions. I strive towards creating such an environment in my classes.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--Slide 2 -->
+				    	<div class="container py-2" style="height: auto">
+				    		<h4 class="pt-5 text-center">Quantitative student feedback</h4>
+							<p class="text-center">Degree of extent students agree or disagree with each of following parameters</p>
+							<p class="text-center"><small>(6 is highest and 0 is poor)</small></p>
+							<div class="container py-0" style="overflow-x: auto">
+				    			<div id="barchart_material" style="height: 25rem; width: 60rem;">
+				    			</div>
+				    		</div>
+				    	</div>
+
+						<!--Slide 3 -->
+						<div class="container py-0" style="height: auto">
+				    		<h4 class="pt-5 text-center">Qualitative student feedback</h4>
+				    		<p class="text-center">Glimpse of written student feedback from the reports of Student Percetions of Teaching (SPOT)</p>
+				    		<p class="text-center"><small>Move cursor on student icon to see student feedback</small></p>
+				    		<span class="py-2 text-center" style="display: block; position: relative; width:100%;"><img style="display: block; position: relative; width:40%; margin-left:auto; margin-right:auto;" src="img/physlab.jpg" alt=""></span>
+				    		<ul class="text-center pl-0" style="list-style: none">
+				    			<li class="py-0">
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Best TA ever! I really enjoyed having Balachandar as a TA."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He did a great job at explaining things when we were confused.</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text"> "The physics labs were painfully boring but Balachandar was a pretty chill TA and made it more bearable."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He explained the conceptual parts of the lab exercises we did in class."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He was friendly and helpful."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Really good at attending to all students needs during the lab."</span>
+				    				</a> 							    		
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Explain things one-on-one to us and tell the class any thing that needs clarifying."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Solid instructor. Would recommend for other students taking this lab."</span>
+				    				</a>  
+				    			</li>
+				    			<li class="py-0">
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text"> "Very good at identifying what I was doing wrong in each lab and helped me accordingly so that I could better understand the material."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Mr. Guduri was always helpful in assisting us when we needed help. He knew exactly what he was talking about and made me understand physics from a new perspective."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He helped with the lab equipment tremendously, providing concise and effective feedback and assistance where needed."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He would write things on the board and explains things that most students found difficult doing during the labs."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He answered questions promptly, trying to guide me to the answer rather than just providing it."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Overall, Mr. Guduri was very helpful during the labs. Although, it was kind of hard sometimes to understand him due to his strong accent, you can tell that he was deffinitely trying to explain the lab activity to his students the best way possible. He also decided to demonstrate some of the activities in order to make it better for his students to understand."</span>
+				    				</a> 							    		
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text"> "Mr. Guduri was not very engaging with the students at first, but slowly warmed up. I'm glad to see him growing through the process of being a TA. He has a good teaching method, guiding students to think properly about the material. When he gets a little more confident in his technical knowledge, he will make a great professor!"</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text"> "Answered everyone's questions."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Balu was very helpful throughout the course of the lab. He always provided helpful advice when asked for assistance and showed that he was interested in seeing us succeed."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He gave clear instructions that were easy to follow."</span>
+				    				</a>     
+				    			</li>
+				    			<li class="py-0">
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Great instructor! Really helped with any question or concern I had."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Clearly explained any conceptual questions we had during the lab."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Helped us understand the basic concepts of the labs better"</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Whenever our group was unsure of something, he would come to explain in detail what was the right answer and why it was right."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He helped me understand and apply the concepts I had difficulty understanding in the labs. Was more then helpful in his time he helped me."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He would write things on the board and explains things that most students found difficult doing during the labs."</span>
+				    				</a> 							    		
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Accent a little rough, but at the end of the day a total bro."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Individual feedback was helpful in improving my progress in completing the labs."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text"> "The instructor was willing to answer all of my questions during the lab. Mr. Guduri also demonstrated somethings that it made it better to understand the activity during the lab."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"He answered any questions I had which helped me better understand and learn from the labs"</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">" He clearly and helpfully answered any problem that was asked to him."</span>
+				    				</a>
+				    				<a class="student-icon">
+				    					<i class="fas fa-user"></i>
+				    					<span class="feedback-text">"Wrote concepts on board during lab."</span>
+				    				</a>       
+				    			</li>
+				    		</ul>
+				    	</div> 
+					</div>
+				</div>
+			</section><!--End of teaching -->
+
+
+			<!-- Page - Personal -->
+			<section id="personal" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-sm-12 col-lg-1">
+						<h2 class="slide-title-text">- Personal -</h2>
+					</div>
+					<div class="container py-2 px-0 col-sm-12 col-md-12 col-lg-11">
+						<div class="row w-100 mx-0 my-0">
+							<div class = "col-sm-12 col-md-6">
+				    			<h5 class="text-left pl-3 pt-5 font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Sometimes you will never know the value of a moment until it becomes a memory.</h5>
+				    		    <h6 class="text-right pr-5"> -  Dr. Seuss</h6>
+								<!-- Music carousel -->
+								<div class=" col-sm-12 m1-2">
+									<h4 class="text-center pt-4">Music I listen</h4>
+								    <!--Carousel Wrapper-->
+								    <div class="carousel slide carousel-multi-item" data-ride="carousel">
+								      <!--Slides-->
+								      <div class="carousel-inner" role="listbox">
+								        <!--First slide-->
+								        <div class="carousel-item active">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <a href="https://www.youtube.com/user/queenofficial" target="_blank"><img class="card-img-top" src="img/queen.jpg" alt="Card image cap"></a>
+								              </div>
+
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2" >
+								                <a href="https://youtu.be/D93PBlwBp8s" target="_blank"><img class="card-img-top" src="img/blues.jpg" alt="Card image cap"></a>
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <a href="https://www.youtube.com/channel/UCNJFXYXkXt_P8bJUxb21MpA" target="_blank"><img class="card-img-top" src="img/jazz.jpg" alt="Card image cap"></a>
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Second slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <a href="https://www.youtube.com/channel/UCfIXdjDQH9Fau7y99_Orpjw" target="_blank"><img class="card-img-top" src="img/gorillaz.jpg" alt="Card image cap"></a>
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/pop.png" alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <a href="https://youtu.be/WFFRFPeyQHA" target="_blank"><img class="card-img-top" src="img/chillmusic.jpg" alt="Card image cap"></a>
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								      </div>
+									</div>
+								</div>
+								<!-- Tv shows carousel -->
+								<div class="col-sm-12 m1-2 pt-4">
+									<h4 class="text-center">TV shows I watch</h4>
+								    <!--Carousel Wrapper-->
+								    <div class="carousel slide carousel-multi-item" data-ride="carousel">
+								      <!--Slides-->
+								      <div class="carousel-inner" role="listbox">
+								        <!--First slide-->
+								        <div class="carousel-item active">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/dailyshow.jpg"
+								                  alt="Card image cap">
+								              </div>
+
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2" >
+								                <img class="card-img-top" src="img/lateshow.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/sethmeyers.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Second slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/cuttheclutter.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/kevinhart.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/fluffy.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Third slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/trevornoah.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/russellpeters.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/lastweek.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								      </div>
+									</div>
+								</div>
+								<!-- Podcasts carousel -->
+								<div class="col-sm-12 m1-2 pt-4">
+									<h4 class="text-center">Podcasts I listen</h4>
+								    <!--Carousel Wrapper-->
+								    <div class="carousel slide carousel-multi-item" data-ride="carousel">
+								      <!--Slides-->
+								      <div class="carousel-inner" role="listbox">
+								        <!--First slide-->
+								        <div class="carousel-item active">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/daily.png"
+								                  alt="Card image cap">
+								              </div>
+
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2" >
+								                <img class="card-img-top" src="img/planetmoney.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/tedtalk.png"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Second slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/freakeconomics.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/nprpolitics.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/scienceVs.png"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								      </div>
+									</div>
+								</div>
+								<!-- Podcasts carousel -->
+								<div class="col-sm-12 m1-2 pt-4">
+									<h4 class="text-center">Series I watch</h4>
+								    <!--Carousel Wrapper-->
+								    <div class="carousel slide carousel-multi-item" data-ride="carousel">
+								      <!--Slides-->
+								      <div class="carousel-inner" role="listbox">
+								        <!--First slide-->
+								        <div class="carousel-item active">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/friends.jpg"
+								                  alt="Card image cap">
+								              </div>
+
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2" >
+								                <img class="card-img-top" src="img/naruto.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/dragonball.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Second slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/got.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/breakingbad.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/shield.png"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Third slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-4">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/flash.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/familyguy.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-4 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/strangerthings.jpg"
+								                  alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								      </div>
+									</div>
+								</div>
+								<!-- Cities Map -->
+								<h4 class="text-center pt-2">Cities I have been</h4>
+								<div class="map">
+									<div class="gmap_canvas px-2">
+										<iframe width="100%" height="300px" id="gmap_canvas" src="https://www.google.com/maps/d/embed?mid=1q0BIsTgvV_a_9b9dR7JG97IAnc9ad_b4" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+										</iframe>
+									</div>
+								</div>	
+							</div>
+
+							<div class = "col-sm-12 col-md-6">
+								<h4 class="text-center pt-3">Activities I enjoy</h4>
+								<div class="hobby">
+									<i class="fas fa-2x fa-volleyball-ball"></i>
+									<span class="caption">Volleyball</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-hiking"></i>
+									<span class="caption">Hiking </span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-chess"></i>
+									<span class="caption">Chess</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-dumbbell"></i>
+									<span class="caption">Gym</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-plane"></i>
+									<span class="caption">Traveling</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-fish"></i>
+									<span class="caption">Aquarium</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-pencil-alt"></i>
+									<span class="caption">Sketching</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-guitar"></i>
+									<span class="caption">Concerts</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-utensils"></i>
+									<span class="caption">Cooking</span>
+								</div>
+								<div class="hobby">
+									<img style="height: 2rem" src="https://img.icons8.com/ios-filled/50/000000/shuttercock.png">
+									<span class="caption">Badminton</span>
+								</div>
+								<div class="hobby">
+									<img style="height: 2rem" src="https://img.icons8.com/ios-filled/50/000000/8-circle.png">
+									<span class="caption">8 ball</span>
+								</div>
+								<div class="hobby">
+									<i class="fas fa-2x fa-handshake"></i>
+									<span class="caption">Community services</span>
+								</div>
+								<h4 class="text-center pt-5">Fun facts</h4>
+								<div class="fun-facts px-0">
+									<ol>
+										<li>Served as <strong>captain of a team</strong> of volleyball and lead to win third prize in IIT intra-hall competition.</li>
+										<li>Completed around <strong>15 out of 20 hiking places</strong> around Blacksburg, US.</li>
+										<li>Worked as a <strong>chef for 1 year</strong> at a local restaurant in the US.</li>
+										<li>Served as a <strong>barista in Starbucks</strong> for 3 months.</li>
+										<li>Maintained fresh-water aquariums and exploring horizons of aqua-scaping for 5 years.</li>
+										<li>Traveled to <strong>40+ cities</strong> in the US and India.</li>
+										<li>Attended <strong>100+ local concerts</strong> in the US in 5 years.</li>
+									</ol>
+								</div>
+
+								<!--- My Sketches -->
+								<div class="col-sm-12 m1-2 pt-5">
+									<h4 class="text-center">Sketches I made</h4>
+								    <!--Carousel Wrapper-->
+								    <div class="carousel slide carousel-multi-item" data-ride="carousel">
+								      <!--Slides-->
+								      <div class="carousel-inner" role="listbox">
+								        <!--First slide-->
+								        <div class="carousel-item active">
+								          <div class="row">
+								            <div class="col-sm-6">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/art3.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-sm-6 clearfix d-none d-md-block">
+								              <div class="card mb-2" >
+								                <img class="card-img-top" src="img/art1.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Second slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-6">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/art2.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-6 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/art6.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								        <!--Third slide-->
+								        <div class="carousel-item">
+								          <div class="row">
+								            <div class="col-md-6">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/art4.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								            <div class="col-md-6 clearfix d-none d-md-block">
+								              <div class="card mb-2">
+								                <img class="card-img-top" src="img/art7.jpg" alt="Card image cap">
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								      </div>
+									</div>
+								</div>
+
+								<h4 class="text-center pt-5">Resources I have used for website</h4>
+								<table class="text-left">
+									<col style="width:50%">
+									<col style="width:50%">
+									<tr>
+										<td>1. Theme insperation</td>
+										<td><a href="http://www.themezaa.com/html/muu/white/index.html" target="_blank">MUU website</a></td>
+									</tr>
+									<tr>
+										<td>2. Framework</td>
+										<td><a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" target="_blank">Bootstrap 4</a></td>
+									</tr>
+									<tr>
+										<td>3. Icons</td>
+										<td><a href="https://fontawesome.com/icons?d=gallery" target="_blank">Font awesome</a></td>
+									</tr>
+									<tr>
+										<td>4. Dark-mode theme</td>
+										<td><a href="https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8" target="_blank">https://dev.to/ananyaneogi</td>
+									</tr>
+									<tr>
+										<td>5. Data plots</td>
+										<td><a href="https://developers.google.com/chart/interactive/docs" target="_blank">Google analytics</a></td>
+									</tr>
+									<tr>
+										<td>6. Assistnace</td>
+										<td><a href="https://www.w3schools.com/" target="_blank">W3school.com</a></br>
+										    Internet webdesign community
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+					</div>	
+				</div>
+			</section>
+
+
+			<!-- Page - contact -->
+			<section id="contact" class="page-container">
+				<div class="row w-100 mx-0 my-0">
+					<div class="slide-title-block col-sm-12 col-lg-1">
+						<h2 class="slide-title-text">- Contact -</h2>
+					</div>
+					<div class=" col-sm-12 col-lg-5 pt-3">
+						<h5 class="text-center font-italic pt-3" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Alone we can do so little, together we can do so much.<small><span style="color:var(--default-color);text-shadow:none">- Helen Keller</span></small></h5>
+						<div class ="row">
+							<div class="container px-4">
+								<p class="pb-2"><strong> <span style="color:var(--h4-color)">Status:</span> Available for full-time work and freelance projects.</strong></p>
+								<p class="pb-3">If you're interested to work with me, here are my contact details.<p>
+								<table class="contact-table">
+									<tr>
+										<td><i class="fa-icon fas fa-user-tie"></i></td>
+										<td>Name: </td>
+										<td>Balachandar Guduri</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-envelope"></i></td>
+										<td>Email: </td>
+										<td>gbalu@vt.edu</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-phone"></i></td>
+										<td>Phone: </td>
+										<td>+91 9949483974</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-birthday-cake"></i></td>
+										<td>Date of birth: </td>
+										<td>23 March 1987</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-flag"></i></td>
+										<td>Nationality: </td>
+										<td>Indian</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-language"></i></td>
+										<td>Languages: </td>
+										<td>English, Telugu, Hindi</td>
+									</tr>
+									<tr>
+										<td><i class="fa-icon fas fa-address-card"></i></td>
+										<td>Address: </td>
+										<td>Bhimavaram, A.P., India</td>
+									</tr>
+								</table>
+							</div>
+							<div class="container py-0 social-media">
+								<a href="https://www.facebook.com/balachandar.guduri" target="_blank"><i class="social-media-icons fab fa-2x fa-facebook-square"></i></a>
+								<a href="https://www.linkedin.com/in/balachandar-guduri" target="_blank"><i class="social-media-icons fab fa-2x fa-linkedin"></i></a>
+								<i class="social-media-icons fab fa-2x fa-github-square"></i>
+								<i class="social-media-icons fab fa-2x fa-instagram-square"></i>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-12 col-lg-6 pt-3">
+						<div class="container">
+							<p> If you'd like to discuss a project or just want to say hi, please fill this form. I will be in touch asap.</p>
+							<form action="/action_page.php" method="get">
+							    <input type="text" id="name" name="name" placeholder="Your name..">
+							    <input type="email" id="email" name="email" placeholder="Your email..">
+							    <input type="text" id="subjecst" name="subject" placeholder="Subject of interest..">
+							    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+							    <input class="btn-wrapper mt-3" type="submit" value="Submit">
+						  	</form>
+						</div>
+					</div>
+				</div>
+			</section><!-- End of contact -->
+		</div><!-- End of Vcards -->
+	</div><!-- End of wrapper -->
+
+
+	<!-- Dark theme switch -->
+	<div class="dark-switch-wrapper">
+	    <label class="dark-switch" for="checkbox">
+	        <input type="checkbox" id="checkbox" title="Dark-Light modes">
+	        <div class="dark-btn round"></div>
+	  	</label>
+	</div><!-- End of dark theme switch -->
+
+
+
+	<!-- Java scripts -->
+	<!-- Dark-switch JS from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8-->
+	<script>
+		const toggleSwitch = document.querySelector('.dark-switch input[type="checkbox"]');
+		toggleSwitch.addEventListener('change', switchTheme, false);
+		function switchTheme(e) {
+		    if (e.target.checked) {
+		        document.documentElement.setAttribute('data-theme', 'dark');
+		        localStorage.setItem('theme', 'dark'); //add this
+		    }
+		    else {
+		        document.documentElement.setAttribute('data-theme', 'light');
+		        localStorage.setItem('theme', 'light'); //add this
+		    }    
+		}
+		const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+		if (currentTheme) {
+		    document.documentElement.setAttribute('data-theme', currentTheme);
+
+		    if (currentTheme === 'dark') {
+		        toggleSwitch.checked = true;
+		    }
+		}
+	</script><!-- End of dark-switch -->
+	<script src="js/particles.js"></script>
+	<script src="js/connected-dots.js"></script>
+	<script src="js/dots.js"></script>
+</body>
+</html>
