@@ -26,14 +26,20 @@ Extra large ≥1200px */
   		margin-right: auto;	
 		border: 1px solid var(--on-color);
 	}
-	 .container {
+	.name-text {
+		font-size: 2rem;
+	}
+	.ward-swap {
+		font-size: 1.5rem;
+	}
+	.container {
 		height: auto;
 		width:100%;
 	}
-	 .briefsummery-container {
+	.briefsummery-container {
 		height: 100%;
 	}
-	 .student-icon {
+	.student-icon {
 		position: relative;
 		font-size: 2rem;
 		padding: 0;
@@ -44,7 +50,47 @@ Extra large ≥1200px */
 		width: 100%;
 		height: 1rem; 
 	}
-
+	.education-timeline ul li {
+		position: relative;
+		width: 80%;
+		padding: 5px 0;
+		box-sizing: border-box;
+		margin:0;
+	}
+	.grade-circle {
+		height: 1.5rem;
+		width: 1.5rem;
+		font-size: 1rem;
+		padding-top: 0; 
+	}
+	.grade-circle-highlight {
+		height: 1.5rem;
+		width: 1.5rem;
+		padding-top: 0;
+	}
+	.timeline ul li {
+		list-style: none;
+		position: relative;
+		width: 80%;
+		padding: 5px 0;
+		box-sizing: border-box;
+	}
+	.timeline ul li:nth-child(odd) .timeline-icon{
+		right: -20%;
+	}
+	.timeline ul li:nth-child(even) .timeline-icon {
+		left: 0;
+	}
+	#research-cards .card {
+		width: 100% !important;
+		height: 15rem !important;
+	}
+	.card-text {
+		height: 20%;
+	}
+	.personal-img {
+		height: 6rem;
+	} 
 }
 
 
@@ -70,7 +116,24 @@ Extra large ≥1200px */
 	}
 	.briefsummery-container {
 		height: 100%;
-	}	
+	}
+	.education-timeline:before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		width: 5px;
+		height: 100%;
+		background: var(--on-color);
+		z-index: 1;
+	}
+	.timeline:before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		width: 5px;
+		height: 100%;
+		background: var(--on-color);
+	}
 }
 
 
@@ -218,5 +281,8 @@ Extra large ≥1200px */
 	}
 	.dark-switch-wrapper {
 	    left: 4vw;
+	}
+	.personal-img {
+		height: 8rem;
 	}
 }
