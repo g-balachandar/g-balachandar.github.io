@@ -24,100 +24,7 @@ $(document).ready(function(){
 	});
 });	
 </script>
-<!-- Google bar chart -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<!-- Bar chart for student feedback -->
-<script type="text/javascript">
-  google.charts.load('current', {'packages':['bar']});
-  google.charts.setOnLoadCallback(drawChart);
-
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Parameter', 'Spring 18: Section 1', 'Spring 18: Section 2', 'Fall 17: Section 1', 'Fall 17: Section 2'],
-      ['The instructor was well prepared.', 5.4,	5.2,	5.4,	5.2],
-      ['The instructor provided feedback.', 5.1,	5.1,	5.2,	5.2],
-      ['The instructor fostered an atmosphere of mutual respect.', 5.3,	5.5,	5.3,	5.5],
-      ['Overall, the instructor teaching was effective.', 5.1,	5.3,	5.3,	4.9],
-      ['The instructor treated students with respect.', 5.3,	5.6,	5.5,	5.4],
-      ['The instructor had a reasonable grading system.', 5.7,	5.5,	5.5,	5.6],
-    ]);
-
-    var options = {
-      bars: 'horizontal',
-      backgroundColor: 'none',
-    };
-
-    var chart = new google.charts.Bar(document.getElementById('barchart_material'));
-
-    chart.draw(data, google.charts.Bar.convertOptions(options));
-  }
-</script>
-<!-- Shankey chart for Projects -->
-<script type="text/javascript">
-	google.charts.load("current", {packages:["sankey"]});
-	google.charts.setOnLoadCallback(drawChart);
-	function drawChart() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'From');
-    data.addColumn('string', 'To');
-    data.addColumn('number', 'Weight');
-    data.addRows([
-		[ 'Matlab', 'Numerical modeling of PS process', 2 ],
-		[ 'Matlab', 'Screening of process parameters', 5 ],
-		[ 'Matlab', 'Process parameter optimization', 5 ],
-		[ 'Matlab', 'System identification in PS process', 5 ],
-		[ 'Matlab', 'Multi-class classification using SVMs', 10 ],
-		[ 'Fortran','Numerical modeling of PS process', 8 ],
-		[ 'Fortran', 'Screening of process parameters', 3 ],
-		[ 'Fortran', 'Process parameter optimization', 1 ],
-		[ 'Fortran', 'Design of robust adaptive process control', 10 ],
-		[ 'JMP', 'Process parameter optimization', 2 ],
-		[ 'LabView', 'Design of a virtual lab - MSSP', 5 ],
-		[ 'Tinker', 'Course project: Nanomechanics', 10 ],
-		[ 'HTML5 & CSS3', 'Design of a virtual lab - MSSP', 5 ],
-		[ 'Tecplot', 'Numerical modeling of PS process', 3],
-		[ 'Phython', 'Process parameter optimization', 2 ],
-		[ 'Screening of process parameters','Data analytics',8],
-		[ 'Process parameter optimization', 'Data analytics', 4 ],
-		[ 'System identification in PS process', 'Data analytics', 5 ],
-		[ 'Design of a virtual lab - MSSP', 'Data analytics', 10 ],
-		[ 'Process parameter optimization', 'Machine learning', 6 ],
-		[ 'Multi-class classification using SVMs', 'Machine learning', 10 ],
-		[ 'Design of robust adaptive process control', 'Control design', 10 ],
-       	[ 'Numerical modeling of PS process', 'Numerical simulations', 13 ],
-       	[ 'Course project: Nanomechanics', 'Numerical simulations', 10 ],
-    ]);
-    // Set chart options
-    var colors = ['#C0392B','#E74C3C', '#9B59B6', '#2980B9', 
-                  '#1ABC9C','#F1C40F', '#E67E22', '#D35400'];
-    var options = {
-      sankey: {
-        node: {
-          colors: colors,
-          label: { fontName: 'Times-Roman',
-                     fontSize: 16,
-                     color: '#0a0a0a',
-                     bold: true,
-                     italic: true }
-        },
-        link: {
-          colorMode: 'gradient',
-          colors: colors
-        }
-      }
-    };
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
-    chart.draw(data, options);
-   }
-</script>
-<!-- Modal box for Abstracts -->
-<script type="text/javascript">
-	$('#myModal').on('shown.bs.modal', function () {
-		$('#myInput').trigger('focus')
-	})
-</script>
-<!--Nav links active -->
+<!--Navbar links active -->
 <script type="text/javascript">
 	$(document).ready(function(){
     $('.nav li').click(function(){
@@ -129,12 +36,13 @@ $(document).ready(function(){
 
 
 
-<body data-gr-c-s-loaded="true">
+<body data-gr-c-s-loaded="true" style="overflow-x: hidden">
+	<div class="cursor"></div>
 	<div id="dots-js" class="wrapper">
-		<!-- Header - Nav bar -->
+		<!-- Header - Nav-bar -->
 		<header>
 			<nav class="navbar navbar-dark navbar-expand-lg navbar-fixed-top px-0 py-0" role="navigation">
-				<a class="navbar-brand" href="#"><h5 style="color:#fff"><span><img style="height:2rem; margin-right:5px" src="img/logo.png"></span><span class="logo-name">Balachandar Guduri</span></h5></a>
+				<a class="navbar-brand py-0" href="#"><h5 style="color:#fff"><span><img style="height:2rem; margin-right:5px" src="img/logo.png"></span><span class="logo-name">Balachandar Guduri</span></h5></a>
 				<button class="navbar-toggler collapsed mr-2" type="button" data-toggle="collapse" data-target="#mainNavbar">
 					<span class="my-2 mx-2 navbar-close"><i class="fas fa-times"></i></span>
        				<span class="mx-0 py-0 navbar-toggler-icon"></span>
@@ -244,7 +152,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-			</section><!--End of Aboutme -->
+			</section><!--End of About me -->
 
 
 			<!-- Page - Resume -->
@@ -729,7 +637,7 @@ $(document).ready(function(){
 											<li>Graded 72 papers and performed data entry tasks every week.</li>
 											<li>Proctored exams biweekly by ensuring the academic integrity of all students to have a fair and equal opportunity to succeed.</li>
 											<li>Provided one-on-one and small group feedback support to reinforce fundamental concepts of physics, to help complete lab assignments and to create a comfortable and friendly environment for student's growth.</li>
-											<li>Formulated and implemented an effective teaching philosophy and resulted in strong supportive feedback from students. 
+											<li>Formulated and implemented an effective teaching philosophy which resulted in strong supportive feedback from students. 
 											</li>
 											<div class="btn-wrapper px-0 py-0">
 												<a href="#teaching"><span>Learn more</span></a>
@@ -831,7 +739,7 @@ $(document).ready(function(){
 											<li>Prepared timely and detailed reports of budget weekly.</li>
 											<li>Advised both the executive council and the university assembly regarding financial situation and forecasts on the biweekly manner.</li>
 											<li>Maintained accounts and records of all GSA financial transactions, deposits, and disbursements.</li>
-											<li>Awarded Who's who among students in American universities & colleges for 2013 and 2014 for outstanding student leadership</li>
+											<li>Awarded Who's who among students in American universities & colleges for 2013 and 2014 for outstanding student leadership (only 17 nominated among ~30,000 Virginia Tech students</li>
 										</ul>
 									</div>
 									<div class="col-sm-12 col-md-2">
@@ -1107,14 +1015,14 @@ $(document).ready(function(){
 								<div class="row pt-3">
 									<div id ="research-cards" class="card-deck mx-3 my-2">
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Numerical modeling of plasma spray process</h6>
-											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
+											<h6 class="card-text"><a href="#numerical-model">Numerical modeling of plasma spray process</a></h6>
+											<video  class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
 												<source src="img/aps-full.mp4" type="video/mp4">
 												Your browser does not support the video tag.
 											</video>
 										</div>
 										<div class="card mb-4" style="height:10rem;">
-											<h6 class="card-text">Screening of process parameters</h6>
+											<h6 class="card-text"><a href="#screening">Screening of process parameters</a></h6>
 											<span class="card-img-container">
 												<img style='height: 100%; width: 100%; object-fit: cover' src="img/screening.png">
 											</span>
@@ -1123,26 +1031,26 @@ $(document).ready(function(){
         									<!-- wrap every 2 on sm-->
         								</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Process parameter optimization</h6>
+											<h6 class="card-text"><a href="#optimization">Process parameter optimization</a></h6>
 											<span class="card-img-container">
 												<img style='height: 100%; width: 100%; object-fit: cover' src="img/process-maps.png">
 											</span>
 										</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">System identification in plasma spray process</h6>
+											<h6 class="card-text"><a href="#system-ident">System identification in plasma spray process</a></h6>
 											<span class="card-img-container"><img style='height: 100%; width: 100%; object-fit: cover' src="img/system-asp.png"></span>
 										</div>
 										<div class="w-100 d-none d-sm-block d-md-block d-lg-block">
 											<!-- wrap every 4 on md-->
 										</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Design of robust adaptive process control</h6>
+											<h6 class="card-text"><a href="#control">Design of robust adaptive process control</a></h6>
 											<span class="card-img-container">
 												<img style='height: 100%; width: 100%; object-fit: cover' src="img/aps-control.png">
 											</span>
 										</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Multi-class classification using support vector machines</h6>
+											<h6 class="card-text"><a href="https://www.sciencedirect.com/science/article/pii/S0263224114003613" target="_blank">Multi-class classification using support vector machines</a></h6>
 											<span class="card-img-container">
 												<img style='height: 100%; width: 100%; object-fit: cover' src="img/classification.png">
 											</span>
@@ -1151,14 +1059,14 @@ $(document).ready(function(){
         									<!-- wrap every 2 on sm-->
         								</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Course project: Nanomechanics </h6>
+											<h6 class="card-text"><a href="#nanomechanics">Course project: Nanomechanics</a></h6>
 											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
 												<source src="img/nanomechanics.mp4" type="video/mp4">
 												Your browser does not support the video tag.
 											</video>
 										</div>
 										<div class="card mb-4" style="height: 10rem;">
-											<h6 class="card-text">Design of a virtual lab - MSSP</h6>
+											<h6 class="card-text"><a href="http://vlabs.iitkgp.ernet.in/mssp/" target="_blank">Design of a virtual lab - MSSP</a></h6>
 											<video class="card-img-container" style="object-fit: cover" controls autoplay loop muted>
 												<source src="img/mssp_1.mp4" type="video/mp4">
 												Your browser does not support the video tag.
@@ -1182,7 +1090,7 @@ $(document).ready(function(){
 					    </div><!-- End of Slide 2 -->
 
 					    <!-- Slide 3 -->
-						<div id="system-ident" class="container px-0" style="height:auto;">
+						<div id="numerical-model" class="container px-0" style="height:auto;">
 					    	<h4 class="pt-5 pb-2 text-center">Numerical modeling of plasma spray process</h4>
 					    		<div class="row container py-0 px-0 mx-0">
 					    			<div class="container px-0 mx-0 pt-2 col-sm-12 col-lg-7 text-center" style="overflow: hidden;">
@@ -1257,6 +1165,9 @@ $(document).ready(function(){
 											    <div class="carousel-item">
 											     	<img class="d-block w-100" src="img/project1-23.png" alt="Third slide">
 											    </div>
+											    <div class="carousel-item">
+										    		<img class="d-block w-100" src="img/thankyou.png">
+										    	</div>
 											</div>
 
 											<a class="carousel-control-prev" href="#caroselProject1" role="button" data-slide="prev">
@@ -1272,7 +1183,7 @@ $(document).ready(function(){
 					    			<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
 					    				<p>Over the last two decades, atmospheric plasma spray (APS) process became one of the most efficient and reliable techniques to produce a wide variety of coatings such as low porosity, thermal barrier, wear and corrosive resistant coatings in different applications [1]. A large variety of powder materials can be used to spray since these materials can efficiently melt due to the high temperature of the plasma jet. The APS process is a common technique to produce ceramic coatings, and is capable of producing functionally graded material coatings [2]. Because of cost efficiency and versatility, numerous industries have adopted this process to produce high-performance coatings [3]. Due to the demand on high volume manufacturing of these coatings, reproducibility and repeatability of the coating quality are prime importance [4].</p>
 
-					    				<p class="pt-3">The APS process is complex  process includes plasma generation, plasma and in-flight particle interaction and deposit formation on a substrate. Complex interactions between plasma and particles significantly [4], [5] vary coating properties that affect the process repeatability [6]. Due to large velocity and temperature gradients in a plasma jet, even small changes in process parameters can significantly alter mesan particles’ states (mean temperature and axial velocity at the instant of striking the substrate), and thus the quality of the coatings [7]. Even with the operating parameters apparently set constant during the process, the particles’ states before impacting the substrate can change over time due to noise variables such as nozzle wear, injector wear, pulsing of powder due to leaks, worn parts in the powder feeder and powder dampness. These fluctuations and noise variables could limit the applicability of an APS process to high precision applications. The motivation, then, for the development of adaptive process control for achieving desired consistency in the mean particles’ states before impacting the substrate is to improve repeatability and reproducibility of coating quality and simultaneously decreasing manufacturing costs.</p>
+					    				<p class="pt-3">The APS process is complex  process includes plasma generation, plasma and in-flight particle interaction and deposit formation on a substrate. Complex interactions between plasma and particles significantly [4], [5] vary coating properties that affect the process repeatability [6]. Due to large velocity and temperature gradients in a plasma jet, even small changes in process parameters can significantly alter mean particles’ states (mean temperature and axial velocity at the instant of striking the substrate), and thus the quality of the coatings [7]. Even with the operating parameters apparently set constant during the process, the particles’ states before impacting the substrate can change over time due to noise variables such as nozzle wear, injector wear, pulsing of powder due to leaks, worn parts in the powder feeder and powder dampness. These fluctuations and noise variables could limit the applicability of an APS process to high precision applications. The motivation, then, for the development of adaptive process control for achieving desired consistency in the mean particles’ states before impacting the substrate is to improve repeatability and reproducibility of coating quality and simultaneously decreasing manufacturing costs.</p>
 
 					    				<p class="pt-3">Due to lack of experimental set-up, we carried out the analyses using fortran code, LAVA-P, which wad developed at the Idaho National Engineering and Environmental Laboratory (INEEL) to simulate APS process. The numerical simulations are inexpensive as compared to manufacturing and material cost and enable us to explore a large variable space. The LAVA-P software simulates the Ar – H<sub>2</sub> plasma jet along with particle injection, acceleration, melting, re-solidification and evaporation. The following assumptions are made to simulate the APS process:</p>
 					    				<ol>
@@ -1333,6 +1244,9 @@ $(document).ready(function(){
 											<div class="carousel-item">
 										    	<img class="d-block w-100" src="img/project2-9.png">
 										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/thankyou.png">
+										    </div>
 										</div>
 										<a class="carousel-control-prev" href="#caroselProject2" role="button" data-slide="prev">
 										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
@@ -1345,7 +1259,7 @@ $(document).ready(function(){
 									</div>
 								</div>
 								<div class="container mx-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
-									<p class="pt-2">The screening analysis for plasma spray process is done by ranking the strength of the impact of process parameters (inputs) on the mean particles’ states (outputs). The outcome of this screening analysis is a list of significant process parameters, which are used for indentifying response functions for the mean particles’ states. </p>
+									<p class="pt-2">The screening analysis for plasma spray process is done by ranking the strength of the impact of process parameters (inputs) on the mean particles’ states (outputs). The outcome of this screening analysis is a list of significant process parameters, which are used for identifying response functions for the mean particles’ states. </p>
 
 									<p class="pt-2">Here, we focus on seven process parameters, which are current, argon flow rate, hydrogen flow rate, powder feed rate, spraying distance, injector location along the jet (y-) axis and along (z-) axis. We use the global one-factor-at-a-time (OFAT) screening analysis proposed by Morris 
 											<a class="reference">[1].
@@ -1358,8 +1272,65 @@ $(document).ready(function(){
 					    </div><!-- End of Slide 4 -->
 
 					    <!-- Slide 5 -->
-					    <div class="container px-0" style="height:auto">
+					    <div id="optimization" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">Process parameter optimization</h4>
+					    	<div class="row container py-0 px-0 mx-0">
+				    			<div class="container mx-0 px-0 col-sm-12 col-lg-7 text-center">
+									<div id="caroselProject3" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner" style="border: 1px solid var(--on-color)">
+										    <div class="carousel-item active">
+										    	<img class="d-block w-100" src="img/project3-1.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-2.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-3.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-4.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-5.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-6.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-7.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-8.png">
+										    </div>
+											<div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-9.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-10.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project3-11.png">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/thankyou.png">
+										    </div>
+										</div>
+										<a class="carousel-control-prev" href="#caroselProject3" role="button" data-slide="prev">
+										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+										    <span class="sr-only">Previous</span>
+										</a>
+										<a class="carousel-control-next" href="#caroselProject3" role="button" data-slide="next">
+										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+										    <span class="sr-only">Next</span>
+										</a>
+									</div>
+								</div>
+								<div class="container mx-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+									<p class="pt-2">Three steps involved in finding the optimal values of process parameters for desired mean particles’ states are screening, identification of response functions, and optimization. The screening analysis is done by ranking the strength of the impact of process parameters on the mean particles’ states. The outcome of this screening analysis is a list of significant process parameters, which are used for identifying response functions for the mean particles’ states. We used a complete polynomial of degree 2 for mean particles’ states in terms of these significant process parameters. The statistical significance of main and interaction effects (i.e. variable terms in polynomial) are determined using the analysis of variance (ANOVA). This analysis suggests which terms in the polynomial are insignificant to reduce the complexity of polynomial; and corresponding coefficients are estimated using linear regression analysis. Finally, the resulting response functions for the mean particles’ states are used to construct an objection function. Then the optimization problem is solved for finding optimal values of significant process parameters using genetic algorithm.</p>
+
+									<p class="pt-2">The percentage error between simulated and desired mean particles’ states is less than 4 % except for one case. For the desired values of mean axial velocity of 100 m/s and mean temperature of 3100 K, the solutions from these two algorithms show a maximum 4.2 % error with simulated ones. This is due to lack of an optimum solution in assumed parameter space. These approaches are valid only if the values of process parameters are in the range of values used for developing response functions. The predicted process parameters from GA optimization will be used to estimate initial parameters for a control algorithm. Note that identified response functions are valid when other process parameters are not changing.</p>
+								</div>
+							</div>
 					    </div><!-- End of Slide 5 -->
 
 					    <!-- Slide 6 -->
@@ -1402,6 +1373,9 @@ $(document).ready(function(){
 										    <div class="carousel-item">
 										    	<img class="d-block w-100" src="img/project4-11.png" alt="Third slide">
 										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/thankyou.png">
+										    </div>
 										</div>
 										<a class="carousel-control-prev" href="#caroselProject4" role="button" data-slide="prev">
 										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
@@ -1433,17 +1407,95 @@ $(document).ready(function(){
 					    </div><!-- End of Slide 6 -->
 
 					    <!-- Slide 7 -->
-					    <div class="container px-0" style="height:auto">
+					    <div id="control" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">Design of robust adaptive process control</h4>
+					    	<div class="row container px-0 py-0 mx-0">
+				    			<div class="container px-0 py-2 col-sm-12 col-lg-7 text-center">
+									<div id="caroselProject5" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner" style="border: 1px solid var(--on-color)">
+										    <div class="carousel-item active">
+										    	<img class="d-block w-100" src="img/project5-1.png" alt="First slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-2.png" alt="Second slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project1-3.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-4.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-5.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-6.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-7.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-8.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-9.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-10.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-11.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-12.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-13.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-14.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-15.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-16.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-17.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-18.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-19.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/project5-20.png" alt="Third slide">
+										    </div>
+										    <div class="carousel-item">
+										    	<img class="d-block w-100" src="img/thankyou.png">
+										    </div>
+										</div>
+										<a class="carousel-control-prev" href="#caroselProject4" role="button" data-slide="prev">
+										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+										    <span class="sr-only">Previous</span>
+										</a>
+										<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject4" role="button" data-slide="next">
+										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+										    <span class="sr-only">Next</span>
+										</a>
+									</div>
+				    			</div>
+				    			<div class="container px-2 py-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+				    				<p>The desired consistency in quality of atmospheric plasma spray (APS) coatings is crucial in many applications, which is difficult to achieve due to the complexity of the APS process. It has been established that the consistency in mean particles’ states such as mean axial velocity and mean temperature before impact on the substrate is a key aspect of achieving consistent coating quality. In this paper, an attempt is made to develop an adaptive process control to achieve consistency in mean particles’ states. The strategy is first to predict the optimal inputs for desired mean particles’ states and minimize the error between the measured and the desired mean particles’ states by adjusting significant inputs when a parameter drift occurs.  The analyses are carried out using LAVA-P, numerical software simulates the APS process. First, screening analysis using one-factor-at-a-time (OFAT) approach by Morris is carried out to investigate the significance of seven process parameters: current, argon and hydrogen flow rates, injector location, powder feed rate, and stand-off distance on the mean particles’ states. This analysis suggests that the significant process parameters for the mean particles’ states are argon and hydrogen flow rates, current, and injector location from the jet axis. Using linear regression analysis, quadratic response functions for the mean particles’ states are identified in terms of these significant process parameters. These functions are used to construct an objective function and optimization problem is solved by genetic algorithm for finding optimal values of argon flow rate, hydrogen flow rate and current for a given location of injector. It is found that these optimal values achieve mean particles’ states within 5% their prescribed desired ones. These optimal values are used to estimate initial gains for proposed adaptive process control and its performance is tested on LAVA-P to attenuate the influence of artificially induced disturbances such as average injection velocity of particles and arc voltage on the mean particles’ states. The mean particles’ states are reached desired values within the settling time of 50 ms by mitigating the effect of disturbances and the smooth variation in the inputs and the mean particles’ states are obtained.</p> 
+				    			</div>
+				    		</div>
 					    </div><!-- End of Slide 7 -->
 
-					    <!-- Slide 8 -->
-					    <div class="container px-0" style="height:auto">
-					    	<h4 class="pt-5 pb-2 text-center">Multi-class classification using SVMs</h4>
-					    </div><!-- End of Slide 8 -->
 
 					    <!-- Slide 9 -->
-					    <div class="container px-0" style="height:auto">
+					    <div id="nanomechanics" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">Course project: Nanomechanics</h4>
 				    		<div class="row container px-0 py-0 mx-0">
 				    			<div class="container pt-2 col-sm-12 col-lg-7 text-center">
@@ -1557,18 +1609,12 @@ $(document).ready(function(){
 
 									<p class="pt-2">Such a problem of water confinement between hydrophobic surfaces is
 									in itself an interesting phenomenon. To add to that, the application of velocity in different directions, physically perturbing the well-known Couette flow configuration can explain properties like slip, molecular diffusion, and interfacial characteristics. Also, of considerable interest is finding the thermal conductivity of such a configuration and potential usage of the same in nano-scale heat transfer problems. Not only graphene sheets but analysis of general Couette flow can also be generalized as carbon sheet-water interaction problem and can be used to solve problems like Couette flow in cylindrical coordinates, an example of which is water confinement between multi-walled carbon nanotube, with an applied initial velocity to one of the nanotubes.</p>
-
 				    			</div>
 				    		</div>
 					    </div><!-- End of Slide 9 -->
-
-					    <!-- Slide 10 -->
-					    <div class="container px-0" style="height:auto">
-					    	<h4 class="pt-5 pb-2 text-center">Design of a virtual lab - MSSP</h4>
-					    </div><!-- End of Slide 10 -->
 					</div> 
 				</div>
-			</section><!-- End of Research -->
+			</section><!-- End of research -->
 
 
 			<!-- Page - Teaching -->
@@ -1745,22 +1791,23 @@ $(document).ready(function(){
 				    	</div> 
 					</div>
 				</div>
-			</section><!--End of Teaching -->
+			</section><!--End of teaching -->
 
 
-<!--page- Personal -->
+			<!--page- Personal -->
 			<section id="personal" class="page-container">
 				<div class="row w-100 mx-0 my-0">
 					<div class="slide-title-block col-sm-12 col-lg-1">
 						<h2 class="slide-title-text">- Personal -</h2>
 					</div>
 					<div class="container py-0 col-sm-12 col-lg-11">
+						<!--Slide 1 -->
 						<div class="container py-2 px-0" style="height: auto">
-					    	<h5 class="text-center pl-3 pt-5 font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Sometimes you will never know the value of a moment until it becomes a memory.</h5>
-			   				<h6 class="text-center pr-5"> -  Dr. Seuss</h6>
+					    	<h5 class="text-center pl-3 pt-2 font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Sometimes you will never know the value of a moment until it becomes a memory.<small><span style="color:var(--default-color);text-shadow:none">- Dr. Seuss</span></small></h5>
 
 					    	<h4 class="pt-3 text-center">Activities I enjoy</h3>
-					    	<div class="container text-center py-2 px-5" style="overflow: hidden;">
+					    	<p class="text-center"><small>Move cursor on activity to see a fun fact</small></p>
+					    	<div class="container text-center py-5 px-5" style="overflow: hidden;">
 								<div class="hobby py-2 px-2" style="width: 10rem;height: 10rem;">
 									<div class="hobby-wrapper">
 										<div class="hobby-content">
@@ -1859,7 +1906,7 @@ $(document).ready(function(){
 											<span class="caption">Sketching</span>
 											<div class="hobby-overlay">
 												<div class="hobby-overlay-text">
-													Occasionally do pencil sketching and mostly women portrait.
+													Occasionally do pencil sketching and mostly women portraits.
 												</div>
 											</div>
 										</div>
@@ -1912,9 +1959,9 @@ $(document).ready(function(){
 					    	<div class="container py-0 px-0" style="overflow: hidden;">
 					    		<div class="row">
 					    			<div class="col-sm-12 col-md-6">
-							    		<!-- Podcasts carousel -->
+							    		<!-- Pod-casts carousel -->
 										<div class="col-sm-12 m1-2 pt-4">
-											<h4 class="text-center">Podcasts I listen</h4>
+											<h4 class="text-center">Pod-casts I listen</h4>
 										    <!--Carousel Wrapper-->
 										    <div class="carousel slide carousel-multi-item" data-ride="carousel">
 										      	<!--Slides-->
@@ -1922,19 +1969,19 @@ $(document).ready(function(){
 											        <!--First slide-->
 											        <div class="carousel-item active">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
-												                	<img class="card-img-top" src="img/daily.png">
+												                	<a href="https://www.nytimes.com/column/the-daily" target="_blank"><img class="card-img-top" src="img/daily.png"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2" >
-												                	<img class="card-img-top" src="img/planetmoney.jpg">
+												                	<a href="https://www.npr.org/podcasts/510289/planet-money" target="_blank"><img class="card-img-top" src="img/planetmoney.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
-												                	<img class="card-img-top" src="img/tedtalk.png">
+												                	<a href="https://www.ted.com/about/programs-initiatives/ted-talks/ted-talks-audio" target="_blank"><img class="card-img-top" src="img/tedtalk.png"></a>
 												              	</div>
 												            </div>
 											          	</div>
@@ -1942,19 +1989,19 @@ $(document).ready(function(){
 											        <!--Second slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
-												                	<img class="card-img-top" src="img/freakeconomics.jpg">
+												                	<a href="https://freakonomics.com/" target="_blank"><img class="card-img-top" src="img/freakeconomics.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
-												                	<img class="card-img-top" src="img/nprpolitics.jpg">
+												                	<a href="https://www.npr.org/podcasts/510310/npr-politics-podcast" target="_blank"><img class="card-img-top" src="img/nprpolitics.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
-												                	<img class="card-img-top" src="img/scienceVs.png">
+												                	<a href="https://gimletmedia.com/shows/science-vs" target="_blank"><img class="card-img-top" src="img/scienceVs.png"></a>
 												              	</div>
 												            </div>
 											          	</div>
@@ -1977,12 +2024,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/friends.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												                <div class="card mb-2" >
 												                	<img class="card-img-top" src="img/naruto.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												                <div class="card mb-2">
 												                	<img class="card-img-top" src="img/dragonball.jpg">
 												                </div>
@@ -1997,12 +2044,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/got.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/breakingbad.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/shield.png">
 												              	</div>
@@ -2017,12 +2064,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/flash.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/familyguy.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/strangerthings.jpg">
 												              	</div>
@@ -2049,12 +2096,12 @@ $(document).ready(function(){
 												                	<a href="https://www.youtube.com/user/queenofficial" target="_blank"><img class="card-img-top" src="img/queen.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2" >
 												                	<a href="https://youtu.be/D93PBlwBp8s" target="_blank"><img class="card-img-top"src="img/blues.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<a href="https://www.youtube.com/channel/UCNJFXYXkXt_P8bJUxb21MpA" target="_blank"><img class="card-img-top" src="img/jazz.jpg"></a>
 												              	</div>
@@ -2069,12 +2116,12 @@ $(document).ready(function(){
 												                	<a href="https://www.youtube.com/channel/UCfIXdjDQH9Fau7y99_Orpjw" target="_blank"><img class="card-img-top" src="img/gorillaz.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/pop.png">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<a href="https://youtu.be/WFFRFPeyQHA" target="_blank"><img class="card-img-top"  src="img/chillmusic.jpg"></a>
 												              	</div>
@@ -2099,12 +2146,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/dailyshow.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2" >
 												                	<img class="card-img-top" src="img/lateshow.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/sethmeyers.jpg">
 												              	</div>
@@ -2119,12 +2166,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/cuttheclutter.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/kevinhart.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/fluffy.jpg">
 												              	</div>
@@ -2139,12 +2186,12 @@ $(document).ready(function(){
 												                	<img class="card-img-top" src="img/trevornoah.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/russellpeters.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-none d-md-block">
+												            <div class="col-md-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/lastweek.jpg">
 												              	</div>
@@ -2165,7 +2212,7 @@ $(document).ready(function(){
 					    		<div class="row">
 									<!-- Cities Map -->
 									<div class="col-sm-12 col-md-6 py-0 px-2">
-										<h4 class="text-center pt-2">Cities I have been</h4>
+										<h4 class="text-center pt-5">Cities I have been</h4>
 										<div class="map">
 											<div class="gmap_canvas px-2">
 												<iframe width="100%" height="300px" id="gmap_canvas" src="https://www.google.com/maps/d/embed?mid=1q0BIsTgvV_a_9b9dR7JG97IAnc9ad_b4" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
@@ -2199,9 +2246,24 @@ $(document).ready(function(){
 												<td><a href="https://developers.google.com/chart/interactive/docs" target="_blank">Google analytics</a></td>
 											</tr>
 											<tr>
-												<td>6. Assistance</td>
-												<td><a href="https://www.w3schools.com/" target="_blank">W3school.com</a></br>
-												    Internet web design community
+												<td>6. Flickering effect</td>
+												<td><a href="https://codepen.io/mandymichael/pen/aJLYVz" target="_blank">Code pen by M Michael</a></td>
+											</tr>
+											<tr>
+												<td>7. Bouncing effect</td>
+												<td><a href="https://codepen.io/wearebold/pen/tDJLr" target="_blank">Code pen by B.</a></td>
+											</tr>
+											<tr>
+												<td>8. Background dots</td>
+												<td><a href="https://vincentgarreau.com/particles.js/" target="_blank">Particle.js V2</a></td>
+											</tr>
+											<tr>
+												<td>9. Custom cursor</td>
+												<td><a href="https://codepen.io/designcourse/pen/GzJKOE" target="_blank">Code pen by design course</a></td>
+											</tr>
+											<tr>
+												<td>10. Documentation</td>
+												<td><a href="https://www.w3schools.com/" target="_blank">W3school.com</a>
 												</td>
 											</tr>
 										</table>
@@ -2240,12 +2302,12 @@ $(document).ready(function(){
 									<tr>
 										<td><i class="fa-icon fas fa-phone"></i></td>
 										<td>Phone: </td>
-										<td>+91 9949483974</td>
+										<td>+91 9573586694</td>
 									</tr>
 									<tr>
 										<td><i class="fa-icon fas fa-birthday-cake"></i></td>
 										<td>Date of birth: </td>
-										<td>23 March 1987</td>
+										<td>March 1987</td>
 									</tr>
 									<tr>
 										<td><i class="fa-icon fas fa-flag"></i></td>
@@ -2288,11 +2350,6 @@ $(document).ready(function(){
 				</div>
 			</section><!-- End of contact -->
 
-
-			
-
-
-
 		</div><!-- End of Vcards -->
 	</div><!-- End of wrapper -->
 
@@ -2308,6 +2365,19 @@ $(document).ready(function(){
 
 
 	<!-- Java scripts -->
+	<!--Custom Cursor -->
+	<script type="text/javascript">
+	    const cursor = document.querySelector('.cursor');
+	    document.addEventListener('mousemove', e => {
+	        cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+	    })
+	    document.addEventListener('click', () => {
+	        cursor.classList.add("expand");
+	        setTimeout(() => {
+	            cursor.classList.remove("expand");
+	        }, 500)
+	    })
+	</script>
 	<!-- Dark-switch JS from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8-->
 	<script>
 		const toggleSwitch = document.querySelector('.dark-switch input[type="checkbox"]');
@@ -2331,6 +2401,99 @@ $(document).ready(function(){
 		    }
 		}
 	</script><!-- End of dark-switch -->
+	<!-- Google bar chart -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<!-- Bar chart for student feedback -->
+	<script type="text/javascript">
+	  google.charts.load('current', {'packages':['bar']});
+	  google.charts.setOnLoadCallback(drawChart);
+
+	  function drawChart() {
+	    var data = google.visualization.arrayToDataTable([
+	      ['Parameter', 'Spring 18: Section 1', 'Spring 18: Section 2', 'Fall 17: Section 1', 'Fall 17: Section 2'],
+	      ['The instructor was well prepared.', 5.4,	5.2,	5.4,	5.2],
+	      ['The instructor provided feedback.', 5.1,	5.1,	5.2,	5.2],
+	      ['The instructor fostered an atmosphere of mutual respect.', 5.3,	5.5,	5.3,	5.5],
+	      ['Overall, the instructor teaching was effective.', 5.1,	5.3,	5.3,	4.9],
+	      ['The instructor treated students with respect.', 5.3,	5.6,	5.5,	5.4],
+	      ['The instructor had a reasonable grading system.', 5.7,	5.5,	5.5,	5.6],
+	    ]);
+
+	    var options = {
+	      bars: 'horizontal',
+	      backgroundColor: 'none',
+	    };
+
+	    var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+	    chart.draw(data, google.charts.Bar.convertOptions(options));
+	  }
+	</script>
+	<!-- Shankey chart for Projects -->
+	<script type="text/javascript">
+		google.charts.load("current", {packages:["sankey"]});
+		google.charts.setOnLoadCallback(drawChart);
+		function drawChart() {
+	    var data = new google.visualization.DataTable();
+	    data.addColumn('string', 'From');
+	    data.addColumn('string', 'To');
+	    data.addColumn('number', 'Weight');
+	    data.addRows([
+			[ 'Matlab', 'Numerical modeling of PS process', 2 ],
+			[ 'Matlab', 'Screening of process parameters', 5 ],
+			[ 'Matlab', 'Process parameter optimization', 5 ],
+			[ 'Matlab', 'System identification in PS process', 5 ],
+			[ 'Matlab', 'Multi-class classification using SVMs', 10 ],
+			[ 'Fortran','Numerical modeling of PS process', 8 ],
+			[ 'Fortran', 'Screening of process parameters', 3 ],
+			[ 'Fortran', 'Process parameter optimization', 1 ],
+			[ 'Fortran', 'Design of robust adaptive process control', 10 ],
+			[ 'JMP', 'Process parameter optimization', 2 ],
+			[ 'LabView', 'Design of a virtual lab - MSSP', 5 ],
+			[ 'Tinker', 'Course project: Nanomechanics', 10 ],
+			[ 'HTML5 & CSS3', 'Design of a virtual lab - MSSP', 5 ],
+			[ 'Tecplot', 'Numerical modeling of PS process', 3],
+			[ 'Phython', 'Process parameter optimization', 2 ],
+			[ 'Screening of process parameters','Data analytics',8],
+			[ 'Process parameter optimization', 'Data analytics', 4 ],
+			[ 'System identification in PS process', 'Data analytics', 5 ],
+			[ 'Design of a virtual lab - MSSP', 'Data analytics', 10 ],
+			[ 'Process parameter optimization', 'Machine learning', 6 ],
+			[ 'Multi-class classification using SVMs', 'Machine learning', 10 ],
+			[ 'Design of robust adaptive process control', 'Control design', 10 ],
+	       	[ 'Numerical modeling of PS process', 'Numerical simulations', 13 ],
+	       	[ 'Course project: Nanomechanics', 'Numerical simulations', 10 ],
+	    ]);
+	    // Set chart options
+	    var colors = ['#C0392B','#E74C3C', '#9B59B6', '#2980B9', 
+	                  '#1ABC9C','#F1C40F', '#E67E22', '#D35400'];
+	    var options = {
+	      sankey: {
+	        node: {
+	          colors: colors,
+	          label: { fontName: 'Times-Roman',
+	                     fontSize: 16,
+	                     color: '#0a0a0a',
+	                     bold: true,
+	                     italic: true }
+	        },
+	        link: {
+	          colorMode: 'gradient',
+	          colors: colors
+	        }
+	      }
+	    };
+	    // Instantiate and draw our chart, passing in some options.
+	    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+	    chart.draw(data, options);
+	   }
+	</script>
+	<!-- Modal box for Abstracts -->
+	<script type="text/javascript">
+		$('#myModal').on('shown.bs.modal', function () {
+			$('#myInput').trigger('focus')
+		})
+	</script>
 	<script src="js/particles.js"></script>
 	<script src="js/connected-dots.js"></script>
 	<script src="js/dots.js"></script>

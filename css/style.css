@@ -29,6 +29,50 @@ body {
 	color: var(--default-color) !important;
 	font-size: 1rem !important;
 }
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+    pointer-events: none;
+    z-index: 9999;
+}
+.cursor::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 5px solid var(--theme-color);
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    -webkit-animation: flick 1s infinite alternate;
+    -moz-animation: flick 1s infinite alternate;
+    -o-animation: flick 1s infinite alternate;
+    animation: flick 1s infinite alternate;
+}
+.expand {
+    -webkit-animation: cursorExpand .5s forwards;
+    -moz-animation: cursorExpand .5s forwards;
+    -o-animation: cursorExpand .5s forwards;
+    animation: cursorExpand .5s forwards;
+    border: 1px solid black;
+}
+@keyframes cursorExpand {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
 p{
 	margin-bottom: 0 !important;
 }
@@ -67,6 +111,8 @@ h5 {
 	font-weight: 600 !important;
 }
 
+
+
 /* particles.js */
 .wrapper {
     height: 100vh;
@@ -81,123 +127,7 @@ h5 {
 	height:100%;
 }
 
-
-
-/* Navigation bar */
-.navbar-toggler > .navbar-close {
-    display:inline;
-}
-.navbar-toggler.collapsed > .navbar-close, .navbar-toggler:not(.collapsed) > .navbar-toggler-icon {
-    display:none;
-}
-
-.navbar {
-	background-color: none;
-	color: var(--default-color) !important;
-	padding: 0;
-	font-weight: 400;
-	top:0;
-	height: 100%
-}
-.navbar-nav li {
-	text-align: center;
-}
-.navbar-nav li > a {
-	padding: 0.3em 0.5em 0.5em 0.5em;
-	border-bottom: 3px solid var(--on-color) !important;	
-}
-.navbar-nav li > a:hover {
-    background-color: var(--on-color) !important;
-    border-bottom: 3px solid var(--theme-color) !important;
-}
-.navbar-nav li.active > a { 
-    background-color: var(--on-color) !important;
-    border-bottom: 3px solid var(--theme-color) !important;	
-}
-.nav-link {
-	background-color: var(--on-color) !important;
-	color: var(--default-color) !important;
-	font-weight: 600 !important;
-	padding: 10px;
-}
-.navbar-brand .logo-name {
-	position: relative;
-	visibility: hidden;
-	background: none;
-}
-.navbar-brand:hover .logo-name {
-	visibility: visible;
-}
-
-
-
-
-/* Home page */
-.word-swap {
-	position: relative;
-	display: block;
-	font-size: 2rem;
-	font-weight: 500;
-}
-.word-swap span:before {
-	content: "Data analytics";
-	text-shadow: 3px 5px 5px rgba(0, 0, 0, .3);
-	animation: wordanimate infinite 8s;
-}
-@keyframes wordanimate {
-	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
-	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
-	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
-	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
-}
-
-
-
-
-
-
-
-.btn-wrapper {
-  position: relative;
-  display: inline-flex;
-}
-.btn-wrapper a{
-  display: block;
-  width: 120px;
-  height: 1.6rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: var(--default-color) !important;;
-  border: 1px solid var(--default-color) !important;;
-  letter-spacing: 1px;
-  text-align: center;
-  position: relative;
-  transition: all .5s;
-}
-.btn-wrapper a span{
-  position: relative;
-  z-index: 2;
-}
-.btn-wrapper a:hover{
-  color: var(--highlight-text-color) !important;;
-}
-.btn-wrapper a:after{
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: var(--theme-color);
-  transition: all .5s;
-}
-.btn-wrapper a:hover:after{
-  width: 100%;
-}
-.fa-icon{
-	color:var(--theme-color);
-}
-
+/*----------------Dark switch --------------------*/
 /* ------------dark switch------------*/
 .dark-switch-wrapper {
 	display: flex;
@@ -255,7 +185,139 @@ input:checked + .dark-btn:before {
 
 
 
-/* About me */
+
+/*----------------- Navigation bar ------------------ */
+.navbar-toggler > .navbar-close {
+    display:inline;
+}
+.navbar-toggler.collapsed > .navbar-close, .navbar-toggler:not(.collapsed) > .navbar-toggler-icon {
+    display:none;
+}
+.navbar {
+	background-color: none;
+	color: var(--default-color) !important;
+	padding: 0;
+	font-weight: 400;
+	top:0;
+	height: 100%
+}
+.navbar-nav li {
+	text-align: center;
+}
+.navbar-nav li > a {
+	padding: 0.3em 0.5em 0.5em 0.5em;
+	border-bottom: 3px solid var(--on-color) !important;	
+}
+.navbar-nav li > a:hover {
+    background-color: var(--on-color) !important;
+    border-bottom: 3px solid var(--theme-color) !important;
+}
+.navbar-nav li.active > a { 
+    background-color: var(--on-color) !important;
+    border-bottom: 3px solid var(--theme-color) !important;	
+}
+.nav-link {
+	background-color: var(--on-color) !important;
+	color: var(--default-color) !important;
+	font-weight: 600 !important;
+	padding: 10px;
+}
+.navbar-brand .logo-name {
+	position: relative;
+	visibility: hidden;
+	background: none;
+}
+.navbar-brand:hover .logo-name {
+	visibility: visible;
+}
+
+
+
+
+/*----------------- Home page -------------------------*/
+.word-swap {
+	position: relative;
+	display: block;
+	font-size: 2rem;
+	font-weight: 500;
+}
+.word-swap span:before {
+	content: "Data analytics";
+	text-shadow: 3px 5px 5px rgba(0, 0, 0, .3);
+	-webkit-animation: wordanimate infinite 8s;
+	-moz-animation: wordanimate infinite 8s;
+	-o-animation: wordanimate infinite 8s;
+	animation: wordanimate infinite 8s;
+}
+@-webkit-keyframes wordanimate {
+	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+}
+@-moz-keyframes wordanimate {
+	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+}
+@-o-keyframes wordanimate {
+	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+}
+@keyframes wordanimate {
+	25%{color: blue; content: "Data analytics";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	50%{color: red; content: "Numerical modeling";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	75%{color: green; content: "Machine learning";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+	100%{color: orange; content: "Control systems";text-shadow: 3px 5px 5px rgba(0, 0, 0, .3)}
+}
+.btn-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+.btn-wrapper a{
+  display: block;
+  width: 120px;
+  height: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--default-color) !important;;
+  border: 1px solid var(--default-color) !important;;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  transition: all .5s;
+}
+.btn-wrapper a span{
+  position: relative;
+  z-index: 2;
+}
+.btn-wrapper a:hover{
+  color: var(--highlight-text-color) !important;;
+}
+.btn-wrapper a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--theme-color);
+  transition: all .5s;
+}
+.btn-wrapper a:hover:after{
+  width: 100%;
+}
+.fa-icon{
+	color:var(--theme-color);
+}
+
+
+
+
+/*--------------- About me---------------- */
 .container {
 	background: none;
 	width: 100%;
@@ -302,7 +364,11 @@ input:checked + .dark-btn:before {
 	display: block;
 }
 
-/* Resume */
+
+
+
+
+/*--------------------------- Resume -----------------------*/
 .subslide-title {
 	position: relative;
 	width: 100%;
@@ -314,26 +380,27 @@ input:checked + .dark-btn:before {
 }
 .progress-bar{
 	display: block;
-	background-color: var(--on-color);	
-	height: 5px;
+	background: var(--on-color) !important;	
+	height: 7px;
 	overflow: hidden;
 	margin-bottom: 10px;
 }
 .progress-bar span{
-	height: 5px;
+	height: 7px;
 	float: left;
 	background: var(--theme-color);
+    -webkit-box-shadow: 0 0 10px var(--theme-color);	
 }
-.fortran { width: 70%; animation: fortran 2s}
-.matlab { width: 90%; animation: matlab 2s}
-.ansys { width: 60%; animation: ansys 2s}
-.phython { width: 50%; animation: phython 2s}
-.tinker { width: 40%; animation: tinker 2s}
-.jmp { width: 50%; animation: jmp 2s}
-.labview { width: 50%; animation: labview 2s}
-.mathematica { width: 40%; animation: mathematica 2s}
-.html { width: 60%; animation: html 2s}
-.ms { width: 100%; animation: ms 2s}
+.fortran { width: 70%; animation: fortran 3s infinite;}
+.matlab { width: 90%; animation: matlab 3s infinite;}
+.ansys { width: 60%; animation: ansys 3s infinite;}
+.phython { width: 50%; animation: phython 3s infinite;}
+.tinker { width: 40%; animation: tinker 3s infinite;}
+.jmp { width: 50%; animation: jmp 3s infinite;}
+.labview { width: 50%; animation: labview 3s infinite;}
+.mathematica { width: 40%; animation: mathematica 3s infinite;}
+.html { width: 60%; animation: html 3s infinite;}
+.ms { width: 100%; animation: ms 3s infinite;}
 @keyframes fortran {
 	0%{width: 0%;};
 	100%{width: 70%;}
@@ -398,13 +465,58 @@ input:checked + .dark-btn:before {
 	justify-content: center;
 	font-weight: 600;
 	padding-top: 2px; 
-	transition: all 2s linear;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
+@-webkit-keyframes flick {
+	0%, 20%, 23%, 49.999%, 64%, 65%, 70%, 100% {
+		opacity: .99;
+        -webkit-box-shadow: 0 0 10px var(--theme-color);
+	}
+	20.01%, 22.01%, 50%, 64%, 65.1%, 70% {
+		opacity: 0.4;
+		-webkit-box-shadow:none;
+	}
+}
+@-moz-keyframes flick {
+	0%, 20%, 23%, 49.999%, 64%, 65%, 70%, 100% {
+		opacity: .99;
+		-moz-box-shadow: 0 0 10px var(--theme-color);
+	}
+	20.01%, 22.01%, 50%, 64%, 65.1%, 70% {
+		opacity: 0.4;
+		-moz-box-shadow:none;
+	}
+}
+@-o-keyframes flick {
+	0%, 20%, 23%, 49.999%, 64%, 65%, 70%, 100% {
+		opacity: .99;
+        -o-box-shadow: 0 0 10px var(--theme-color);
+	}
+	20.01%, 22.01%, 50%, 64%, 65.1%, 70% {
+		opacity: 0.4;
+		-o-box-shadow: none;
+	}
+}
+@keyframes flick {
+	0%, 20%, 23%, 49.999%, 64%, 65%, 70%, 100% {
+		opacity: .99;
+        box-shadow: 0 0 10px var(--theme-color);
+	}
+	20.01%, 22.01%, 50%, 64%, 65.1%, 70% {
+		opacity: 0.4;
+		box-shadow: none;
+	}
+}
+
+
+
 .resume-table tr,td {
 	padding: 2px 0;
 	vertical-align:top;
 }
-
 .education-timeline {
 	display: block;
 	position: relative;
@@ -444,6 +556,10 @@ input:checked + .dark-btn:before {
 	color: var(--highlight-text-color);
 	font-weight: 500;
 	z-index: 10;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .education-timeline ul li:nth-child(even) .education-timeline-year {
 	text-align: center;		
@@ -454,7 +570,11 @@ input:checked + .dark-btn:before {
 	background: var(--theme-color);
 	color: var(--highlight-text-color);
 	font-weight: 500;
-	z-index: 10;	
+	z-index: 10;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;		
 }
 .education-timeline ul li:nth-child(odd) .education-timeline-content {
 	position: relative;
@@ -463,6 +583,10 @@ input:checked + .dark-btn:before {
 	border-right: 5px solid var(--theme-color);
 	width: 90%;
 	padding: 10px;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .education-timeline ul li:nth-child(even) .education-timeline-content {
 	position: relative;
@@ -471,6 +595,10 @@ input:checked + .dark-btn:before {
 	border-left: 5px solid var(--theme-color);
 	width: 90%;
 	padding: 10px;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .education-timeline ul li:nth-child(odd) .education-timeline-content:before {
 	content: '';
@@ -481,6 +609,10 @@ input:checked + .dark-btn:before {
 	display: inline-block;
 	background-color: var(--theme-color);
 	z-index: 1;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .education-timeline ul li:nth-child(even) .education-timeline-content:before {
 	content: '';
@@ -491,6 +623,10 @@ input:checked + .dark-btn:before {
 	display: inline-block;
 	background-color: var(--theme-color);
 	z-index: 1;
+	-webkit-animation: flick-even 3s linear infinite;	
+	-moz-animation: flick-even 3s linear infinite;	
+	-o-animation: flick-even 3s linear infinite;	
+	animation: flick-even 3s linear infinite;	
 }
 .education-timeline ul li:nth-child(odd) .education-timeline-text {
 	position: relative;
@@ -503,7 +639,46 @@ input:checked + .dark-btn:before {
 	width: 100%;
 	display: inline-block;
 }
-
+@-webkit-keyframes flick-even {
+	0%, 10%, 23%, 39.999%, 64%, 75%, 80%, 100% {
+		opacity: .99;
+        -webkit-box-shadow: 0 0 10px var(--theme-color);
+	}
+	10.01%, 22.01%, 40%, 64%, 75.01%, 90% {
+		opacity: 0.4;
+		-webkit-box-shadow:none;
+	}
+}
+@-moz-keyframes flick-even {
+	0%, 10%, 23%, 39.999%, 64%, 75%, 80%, 100% {
+		opacity: .99;
+        -moz-box-shadow: 0 0 10px var(--theme-color);
+	}
+	10.01%, 22.01%, 40%, 64%, 75.01%, 90% {
+		opacity: 0.4;
+		-moz-box-shadow:none;
+	}
+}
+@-o-keyframes flick-even {
+	0%, 10%, 23%, 39.999%, 64%, 75%, 80%, 100% {
+		opacity: .99;
+        -o-box-shadow: 0 0 10px var(--theme-color);
+	}
+	10.01%, 22.01%, 40%, 64%, 75.01%, 90% {
+		opacity: 0.4;
+		-o-box-shadow:none;
+	}
+}
+@keyframes flick-even {
+	0%, 10%, 23%, 39.999%, 64%, 75%, 80%, 100% {
+		opacity: .99;
+        box-shadow: 0 0 10px var(--theme-color);
+	}
+	10.01%, 22.01%, 40%, 64%, 75.01%, 90% {
+		opacity: 0.4;
+		box-shadow:none;
+	}
+}
 
 
 
@@ -542,7 +717,11 @@ input:checked + .dark-btn:before {
 	width: 3rem;
 	background: var(--theme-color);
 	color: var(--highlight-text-color);
-	font-weight: 500;
+	font-weight: 600;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .timeline ul li:nth-child(even) .timeline-year {
 	text-align: center;		
@@ -552,7 +731,11 @@ input:checked + .dark-btn:before {
 	width: 3rem;
 	background: var(--theme-color);
 	color: var(--highlight-text-color);
-	font-weight: 500;
+	font-weight: 600;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;	
 }
 .timeline-content {
 	position: relative;
@@ -580,20 +763,22 @@ input:checked + .dark-btn:before {
 	position: relative;
 	display: inline-block;
 	width: 8rem;
-	height: 1.2rem;
+	height: 1.4rem;
 	justify-content: center;
 	text-align: center;
 	background-color: var(--theme-color);
 	color: var(--highlight-text-color);
-	font-weight: 500;
+	font-weight: 600;
+	-webkit-animation: flick 3s linear infinite;	
+	-moz-animation: flick 3s linear infinite;	
+	-o-animation: flick 3s linear infinite;	
+	animation: flick 3s linear infinite;
 }
 
 
 
 
-/* Teaching slide */
-/* Tooltips */
-
+/*------------------ Teaching slide------------------- */
 .fas {
 	color: var(--h4-color);
 }
@@ -629,7 +814,7 @@ input:checked + .dark-btn:before {
 	transition: all 0.3s ease;
 	z-index: 1;
 }
- .feedback-text:after {
+.feedback-text:after {
     display: block;
     position: absolute;
     bottom: 1px;
@@ -640,11 +825,11 @@ input:checked + .dark-btn:before {
     border-style: solid;
     border-width: 10px 10px 0 10px;
     color: var(--theme-color);
-    border-color: var(--main-bg-color) transparent transparent;
+    border-color: var(--theme-color) transparent transparent;
     transform: translate(-50%, 100%);
     -webkit-transform: translate(-50%, 100%);
 }
- .student-icon:hover .feedback-text {
+.student-icon:hover .feedback-text {
 	 visibility: visible;
 	 opacity: 1;
 	 transform: translate(-50%, -150%);
@@ -654,7 +839,7 @@ input:checked + .dark-btn:before {
 
 
 
-/*  Research */
+/*----------------  Research ---------------------------*/
 .card-text {
   background-color: var(--on-color);
   color: var(--default-color);
@@ -720,14 +905,12 @@ input:checked + .dark-btn:before {
   border: 1px solid black;
   background-image: none;
 }
-
 .carousel-control-next-icon:after
 {
   content: '>';
   font-size: 55px;
   color: red;
 }
-
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
@@ -735,7 +918,10 @@ input:checked + .dark-btn:before {
 }
 
 
-/*  Personal  */
+
+
+
+/*--------------  Personal --------------- */
 .personal-img {
 	position: relative;
 	width: 6rem;
@@ -940,8 +1126,8 @@ input:checked + .dark-btn:before {
   50%{ transform:translate(-10px, -15px) rotate(10deg); }
 }
 @keyframes ball8 {
-  0%,20%,100%{ transform:translate(10px, 15px) rotate(-5deg);}
-  10%,80%{ transform:translate(10px, -15px) rotate(5deg); }
+  0%,100%{ transform:translate(10px, -15px) rotate(-5deg);}
+  60%{ transform:translate(-10px, -15px) rotate(5deg); }
 }
 @keyframes ball9 {
   0%,100%{ transform:translate(-5px, 15px) rotate(-15deg);}
@@ -958,32 +1144,8 @@ input:checked + .dark-btn:before {
 
 
 
-.fun-facts ol {
-   list-style: none;
-   counter-reset: item;
-   margin-left:2rem;
- }
- .fun-facts li {
-   counter-increment: item;
-   margin-bottom: 5px;
- }
- .fun-facts li:before {
-   margin-left: -2rem;
-   margin-right: 10px;
-   content: counter(item);
-   background: var(--theme-color);
-   border-radius: 100%;
-   color: var(--highlight-text-color);
-   width: 1.5em;
-   text-align: center;
-   display: inline-block;
-   font-weight: 600; 
- }
 
-
-
-
-/* Contact page */
+/*------------ Contact page ---------------*/
 .contact-table tr, td{
 	padding-bottom: 10px;
 }
@@ -998,7 +1160,6 @@ input[type=text],input[type=email], textarea {
 	resize: vertical;
   	background-color: var(--main-bg-color)
 }
-
 input[type=submit] {
 	background: none;
 	color: var(--default-color);
@@ -1028,7 +1189,6 @@ input[type=submit]:hover:after{
 .social-media-icons {
 	color: var(--default-color);
 	padding: 5px;
-
 }
 .social-media-icons:hover{
 	color: var(--theme-color);
@@ -1047,124 +1207,3 @@ input[type=submit]:hover:after{
 
 
 
-
-
-
-
-
-
-
-
-/* Teaching slide */
-.teaching-slider {
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.teaching-slider-inner {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 300%;
-	height: 92%;
-	-webkit-transition: all 1s ease-out;
-	transition: all 1s ease-out;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-flow: row nowrap;
-	-ms-flex-flow: row nowrap;
-	flex-flow: row nowrap;
-}
-.slider-content {
-	height: 100%;
-	text-align: center;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 1;
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-flex-flow: column nowrap;
-	-ms-flex-flow: column nowrap;
-	flex-flow: column nowrap;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
- @-webkit-keyframes 
-check {  50% {
-	outline-color: var(--theme-color);
-	box-shadow: 0 0 0 12px var(--theme-color), 0 0 0 36px rgba(51, 51, 51, 0.2);
-}
- 100% {
-	outline-color: var(--theme-color);
-	box-shadow: 0 0 0 0 var(--theme-color), 0 0 0 0 rgba(51, 51, 51, 0);
-}
-}
- @keyframes 
-check {  50% {
-	outline-color: var(--theme-color);
-	box-shadow: 0 0 0 12px var(--theme-color), 0 0 0 36px rgba(51, 51, 51, 0.2);
-}
- 100% {
-	outline-color: var(--theme-color);
-	box-shadow: 0 0 0 0 var(--theme-color), 0 0 0 0 rgba(51, 51, 51, 0);
-}
-}
-
-.teaching-slider-nav {
-  width: 12px;
-  height: 12px;
-  margin: 1rem 12px;
-  border-radius: 50%;
-  z-index: 10;
-  outline: 6px solid var(--on-color);
-  outline-offset: -6px;
-  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.teaching-slider-nav:checked {
-  -webkit-animation: check 0.5s linear forwards;
-  animation: check 0.5s linear forwards;
-}
-.teaching-slider-nav:checked:nth-of-type(1) ~ .teaching-slider-inner {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-}
-.teaching-slider-nav:checked:nth-of-type(2) ~ .teaching-slider-inner {
-  -webkit-transform: translateX(-33.33%);
-  transform: translateX(-33.33%);
-}
-.teaching-slider-nav:checked:nth-of-type(3) ~ .teaching-slider-inner {
-  -webkit-transform: translateX(-66.67%);
-  transform: translateX(-66.67%);
-}
