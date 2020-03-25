@@ -195,6 +195,43 @@ Extra large ≥1200px */
 	    display: block;
 	    width: 100%;
 	}
+	#back2Top {
+	    width: 40px;
+	    height: 40px;
+	    z-index: 1000;
+	    display: inline-block;
+	    cursor: pointer;
+	    position: fixed;
+	    bottom: 3vh;
+	    right:  2.5vw;
+	    background-color: var(--on-color);
+	    color: #555;
+	    text-align: center;
+	    font-size: 30px;
+	    visibility: visible;
+	    opacity: 1;
+	}
+	#back2Top::after {
+	  content: "\f077";
+	  font-family: FontAwesome;
+	  font-weight: normal;
+	  font-style: normal;
+	  font-size: 1em;
+	  color: var(--theme-color);
+	}
+	#back2Top:hover {
+	  	cursor: pointer;
+	  	background-color: var(--on-color);
+	  	color: ;
+
+	}
+	#back2Top:active {
+	  	background-color: #555;
+	}
+	#back2Top.show {
+	  	opacity: 1;
+	  	visibility: visible;
+	}
 }
 
 

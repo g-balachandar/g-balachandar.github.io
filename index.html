@@ -30,8 +30,25 @@ $(document).ready(function(){
     $('.nav li').click(function(){
         $(this).addClass('active');
         $(this).siblings().removeClass('active');
+		$(this).scrollspy('refresh');
     });
 });
+</script>
+<script type="text/javascript">
+	var btn = $('#back2top');
+
+	$(window).scroll(function() {
+	  if ($(window).scrollTop() > 300) {
+	    btn.addClass('show');
+	  } else {
+	    btn.removeClass('show');
+	  }
+	});
+
+	btn.on('click', function(e) {
+	  e.preventDefault();
+	  $('html, body').animate({scrollTop:0}, '300');
+	});
 </script>
 
 
@@ -39,6 +56,7 @@ $(document).ready(function(){
 <body data-gr-c-s-loaded="true" style="overflow-x: hidden">
 	<div class="cursor"></div>
 	<div id="dots-js" class="wrapper">
+
 		<!-- Header - Nav-bar -->
 		<header>
 			<nav class="navbar navbar-dark navbar-expand-lg navbar-fixed-top px-0 py-0" role="navigation">
@@ -64,6 +82,7 @@ $(document).ready(function(){
 
 		<!-- V-cards -->
 		<div class="main-container">
+			<a id="back2Top" title="Back to top" href="#"></a>
 
 			<!-- Page Home  -->
 			<section id="home" class="page-container">
@@ -79,10 +98,10 @@ $(document).ready(function(){
 
 
 						<h5 class="pt-4">Currently looking for full-time work or freelance projects</h5>
-						<h6 class="btn-wrapper mb-0">
+						<h6 class="btn-wrapper mb-0 px-2">
 							<a href="#aboutme"><span>About Me!</span></a>
 						</h6>
-						<h6 class="btn-wrapper mb-0">
+						<h6 class="btn-wrapper mb-0 px-2">
 							<a href="#"><span>Download CV</span></a>
 						</h6>
 						<div class="social-media text-center pt-3">
@@ -106,7 +125,7 @@ $(document).ready(function(){
 						<h2 class="slide-title-text">- About me -</h2>
 					</div>
 					<div class="container col-sm-12 col-md-4 col-lg-4 col-md-4 pt-3">
-						<div class="container py-0 px-0">
+						<div class="container py-0 px-0" style="overflow: hidden;">
 							<img style="display:block; width: 100%; vertical-align: middle;" src="img/balu3.jpg" alt="">
 						</div>
 					</div>					
@@ -140,11 +159,11 @@ $(document).ready(function(){
 									</li>
 									<li sclass="pt-2" tyle="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-suitcase"></i></span>Worked as a research assistant for 3 years in a university-affiliated research team for Rolls Royce sponsored project</li>  
 									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-hand-holding-usd"></i></span>Served as a director of finance and budget board member for 2 years  to oversee the financial system for university-affiliated organizations</li>
-									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-chalkboard-teacher"></i></span>Served as a teaching assistant for 3.5 years with an effective teaching philosophy which proven success in assisting undergraduates in Virginia Tech</li> 
+									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-chalkboard-teacher"></i></span>Served as a teaching assistant for 3.5 years with an effective teaching philosophy that proven success in assisting undergraduates at Virginia Tech</li> 
 									<li class="pt-2" style="padding-bottom: 10px;"><span class="fa-li"><i class="fas fa-2x fa-user-secret"></i></span>Capable of handling multiple projects at a time with minimum supervision</li>
 								</ul>
 								<div style="text-align:right">
-									<h6 class="btn-wrapper mb-0 pt-3">
+									<h6 class="btn-wrapper mb-0 pt-3 pr-2">
 										<a href="#resume"><span>Learn more</span></a>
 									</h6>
 								</div>
@@ -162,6 +181,7 @@ $(document).ready(function(){
 						<h2 class="slide-title-text">- Resume -</h2>
 					</div>
 					<div class="container col-sm-12 col-lg-11">
+
 							<h5 class="text-center font-italic" style="color: #ffd700;  text-shadow: 1px 1px black;"><span class="px-2"><i class="fas fas-quote fa-quote-left"></i></span>Choose a job you love, and you will never have to work a day in your life.<small><span style="color:var(--default-color);text-shadow:none">- Confucius</span></small></h5>
 
 							<!--Slide 1 Expertise-->
@@ -232,14 +252,11 @@ $(document).ready(function(){
 											<li>Matlab
 												<div class="progress-bar"><span class="matlab"></span></div>
 											</li>
-											<li>Ansys
-												<div class="progress-bar"><span class="ansys"></span></div>
-											</li>
 											<li>Phython
 												<div class="progress-bar"><span class="phython"></span></div>
 											</li>	
-											<li>JMP
-												<div class="progress-bar"><span class="jmp"></span></div>
+											<li>R
+												<div class="progress-bar"><span class="R"></span></div>
 											</li>
 											<li>LabView
 												<div class="progress-bar"><span class="labview"></span></div>
@@ -249,6 +266,9 @@ $(document).ready(function(){
 											</li>
 											<li>Tinker
 												<div class="progress-bar"><span class="tinker"></span></div>
+											</li>
+											<li>Ansys
+												<div class="progress-bar"><span class="ansys"></span></div>
 											</li>
 											<li>HTML5 & CSS3
 												<div class="progress-bar"><span class="html"></span></div>
@@ -310,6 +330,27 @@ $(document).ready(function(){
 							<!--Slide 3- Coursework -->
 							<div class="container py-0 px-0 mx-0" style="height: auto">
 								<h4 class="pt-5 pb-3 text-center">Course work</h4>
+				    			<h5 class="text-left mt-2"><span class="ml-1" style="color:var(--theme-color)"><i class="fas fa-book-open"></i></span> Online courses from Coursera</h5>				    			
+					    		<div class="row w-100 px-0 mx-0">
+									<div class="col-sm-12 col-md-2 col-lg-2">
+										March 2020
+									</div>
+									<div class="col-sm-12 col-md-3 col-lg-4">
+										Intro to Data Science by IBM
+									</div>
+									<div class="col-sm-12 col-md-7 col-lg-6">
+											<div class="grade-circle">F</div>
+											<div class="grade-circle">D</div>
+											<div class="grade-circle">C-</div>
+											<div class="grade-circle">C</div>
+											<div class="grade-circle">C+</div>
+											<div class="grade-circle">B-</div>
+											<div class="grade-circle">B</div>
+											<div class="grade-circle">B+</div>
+											<div class="grade-circle">A-</div>
+											<div class="grade-circle-highlight">A</div>
+									</div>
+								</div>
 				    			<h5 class="text-left mt-2"><span class="ml-1" style="color:var(--theme-color)"><i class="fas fa-book-open"></i></span> Courses from Virginia Tech, US</h5>
 					    		<div class="row w-100 px-0 mx-0">
 									<div class="col-sm-12 col-md-2 col-lg-2">
@@ -1093,7 +1134,7 @@ $(document).ready(function(){
 						<div id="numerical-model" class="container px-0" style="height:auto;">
 					    	<h4 class="pt-5 pb-2 text-center">Numerical modeling of plasma spray process</h4>
 					    		<div class="row container py-0 px-0 mx-0">
-					    			<div class="container px-0 mx-0 pt-2 col-sm-12 col-lg-7 text-center" style="overflow: hidden;">
+					    			<div class="px-0 pt-2 col-sm-12 col-lg-8 text-center" style="margin: 0 auto">
 										<div id="caroselProject1" class="carousel slide" data-ride="carousel">
 											<div class="carousel-inner" style="border: 1px solid var(--on-color)">
 											    <div class="carousel-item active">
@@ -1180,14 +1221,52 @@ $(document).ready(function(){
 											</a>
 										</div>
 					    			</div>
-					    			<div class="container py-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
-					    				<p>Over the last two decades, atmospheric plasma spray (APS) process became one of the most efficient and reliable techniques to produce a wide variety of coatings such as low porosity, thermal barrier, wear and corrosive resistant coatings in different applications [1]. A large variety of powder materials can be used to spray since these materials can efficiently melt due to the high temperature of the plasma jet. The APS process is a common technique to produce ceramic coatings, and is capable of producing functionally graded material coatings [2]. Because of cost efficiency and versatility, numerous industries have adopted this process to produce high-performance coatings [3]. Due to the demand on high volume manufacturing of these coatings, reproducibility and repeatability of the coating quality are prime importance [4].</p>
+					    			<div class="py-3 px-2 col-sm-12 text-left">
+					    				<p class = "text-left">Over the last two decades, atmospheric plasma spray (APS) process became one of the most efficient and reliable techniques to produce a wide variety of coatings such as low porosity, thermal barrier, wear and corrosive resistant coatings in different applications <a class="reference">[1].<span class="referencetext">[1] R. B. (Robert B. Heimann, Plasma-spray coating : principles and applications. VCH, 1996.</span></a> A large variety of powder materials can be used to spray since these materials can efficiently melt due to the high temperature of the plasma jet. The APS process is a common technique to produce ceramic coatings, and is capable of producing functionally graded material coatings <a class="reference">[2].<span class="referencetext">[2] S. Sampath, H. Herman, N. Shimoda, and T. Saito, “Thermal spray processing of FGMs,” MRS Bull., vol. 20, no. 1, pp. 27–31, 1995.</span></a> Because of cost efficiency and versatility, numerous industries have adopted this process to produce high-performance coatings <a class="reference">[3].<span class="referencetext">[3] H. Herman, S. Sampath, and R. McCune, “Thermal spray: current status and future trends,” MRS Bull., vol. 25, no. 7, pp. 17–25, 2000.</span></a> Due to the demand on high volume manufacturing of these coatings, reproducibility and repeatability of the coating quality are prime importance <a class="reference">[4].<span class="referencetext">[4] R. L. Williamson, J. R. Fincke, and C. H. Chang, “A computational examination of the sources of statistical variance in particle parameters during thermal plasma spraying,” Plasma Chem. Plasma Process., vol. 20, no. 3, pp. 299–324, 2000.</span></a></p>
 
-					    				<p class="pt-3">The APS process is complex  process includes plasma generation, plasma and in-flight particle interaction and deposit formation on a substrate. Complex interactions between plasma and particles significantly [4], [5] vary coating properties that affect the process repeatability [6]. Due to large velocity and temperature gradients in a plasma jet, even small changes in process parameters can significantly alter mean particles’ states (mean temperature and axial velocity at the instant of striking the substrate), and thus the quality of the coatings [7]. Even with the operating parameters apparently set constant during the process, the particles’ states before impacting the substrate can change over time due to noise variables such as nozzle wear, injector wear, pulsing of powder due to leaks, worn parts in the powder feeder and powder dampness. These fluctuations and noise variables could limit the applicability of an APS process to high precision applications. The motivation, then, for the development of adaptive process control for achieving desired consistency in the mean particles’ states before impacting the substrate is to improve repeatability and reproducibility of coating quality and simultaneously decreasing manufacturing costs.</p>
+					    				<div class="text-center pt-2" style="justify-content: center; margin: 0 auto">
+					    					<img style="height: 20rem;" src="img/aps-schematic.png">
+					    				</div>
+					    				<p class="text-center pb-3"><strong>Figure 1:</strong> Schematic of an APS process <a class="reference">[5]<span class="referencetext">[5] S. Shang, B. Guduri, M. Cybulsky, and R. C. Batra, “Effect of turbulence modulation on three-dimensional trajectories of powder particles in a plasma spray process,” J. Phys. D. Appl. Phys., vol. 47, no. 40, p. 405206, 2014.</span></a> </p>
 
-					    				<p class="pt-3">Due to lack of experimental set-up, we carried out the analyses using fortran code, LAVA-P, which wad developed at the Idaho National Engineering and Environmental Laboratory (INEEL) to simulate APS process. The numerical simulations are inexpensive as compared to manufacturing and material cost and enable us to explore a large variable space. The LAVA-P software simulates the Ar – H<sub>2</sub> plasma jet along with particle injection, acceleration, melting, re-solidification and evaporation. The following assumptions are made to simulate the APS process:</p>
+					    				<p class="pt-3">Figure 1 shows the schematics of an APS process. The APS process is complex  process includes plasma generation, plasma and in-flight particle interaction and deposit formation on a substrate. Complex interactions between plasma and particles significantly 
+					    					<a class="reference">[4]<span class="referencetext">[4] R. L. Williamson, J. R. Fincke, and C. H. Chang, “A computational examination of the sources of statistical variance in particle parameters during thermal plasma spraying,” Plasma Chem. Plasma Process., vol. 20, no. 3, pp. 299–324, 2000.</span></a>,
+					    					<a class="reference">[6],<span class="referencetext">[6] Y. P. Wan, V. Prasad, G.-X. Wang, S. Sampath, and J. R. Fincke, “Model and powder particle heating, melting, resolidification, and evaporation in plasma spraying processes,” J. Heat Transfer, vol. 121, no. 3, pp. 691–699, 1999.</span></a> 
+					    				vary coating properties that affect the process repeatability 
+					    					<a class="reference">[7]<span class="referencetext">[7] J. R. Fincke, W. D. Swank, R. L. Bewley, D. C. Haggard, M. Gevelber, and D. Wroblewski, “Diagnostics and control in the thermal spray process,” Surf. Coatings Technol., vol. 146, pp. 537–543, 2001.</span></a>. 
+					    				Due to large velocity and temperature gradients in a plasma jet, even small changes in process parameters can significantly alter mean particles’ states (mean temperature and axial velocity at the instant of striking the substrate), and thus the quality of the coatings 
+					    					<a class="reference">[8]<span class="referencetext">[8] R. Westergård, L. C. Erickson, N. Axen, H. M. Hawthorne, and S. Hogmark, “The erosion and abrasion characteristics of alumina coatings plasma sprayed under different spraying conditions,” Tribol. Int., vol. 31, no. 5, pp. 271–279, 1998.</span></a>.
+					    				Even with the operating parameters apparently set constant during the process, the particles’ states before impacting the substrate can change over time due to noise variables such as nozzle wear, injector wear, pulsing of powder due to leaks, worn parts in the powder feeder and powder dampness. These fluctuations and noise variables could limit the applicability of an APS process to high precision applications. The motivation, then, for the development of adaptive process control for achieving desired consistency in the mean particles’ states before impacting the substrate is to improve repeatability and reproducibility of coating quality and simultaneously decreasing manufacturing costs.</p>
+
+					    				<div class="card-deck pt-2">
+					    					<div class="col-sm-6 col-md-3">
+								              	<div class="card my-2" style="border: none !important">
+								                	<img class="card-img-top" style="height:20rem;" src="img/aps-process-1.png">
+								              	</div>
+											</div>
+								            <div class="col-sm-6 col-md-3 clearfix d-block d-md-block">
+								              	<div class="card my-2" style="border: none !important">
+								                	<img class="card-img-top" style="height:20rem;" src="img/aps-process-2.png">
+								              	</div>
+								            </div>
+								            <div class="col-sm-6 col-md-3 clearfix d-block d-md-block">
+								              	<div class="card my-2" style="border: none !important">
+								                	<img class="card-img-top" style="height:20rem;" src="img/aps-process-3.png">
+												</div>
+								            </div>
+								            <div class="col-sm-6 col-md-3 clearfix d-block d-md-block">
+								              	<div class="card my-2" style="border: none !important">
+								                	<img class="card-img-top" style="height:20rem;" src="img/aps-process-4.png">
+								              	</div>
+								            </div>
+					    				</div>
+					    				<p class="text-center pb-3"><strong>Figure 2:</strong> Process steps in an APS process</p>
+
+					    				<p class="pt-3"> In general, the numerical simulations are inexpensive as compared to manufacturing and material cost and enable us to explore a large variable space. We carried out the numerical analyses using fortran code, LAVA-P, which was developed at the Idaho National Engineering and Environmental Laboratory (INEEL) to simulate APS process. The LAVA-P software simulates the Ar – H<sub>2</sub> plasma jet along with particle injection, acceleration, melting, re-solidification and evaporation. The following assumptions are made to simulate the APS process:</p>
 					    				<ol>
-					    					<li>The Ar – H<sub>2</sub> plasma jet is an axisymmetric, unsteady, compressible, Newtonian, turbulent, and chemically reacting multi-component fluid mixture with temperature-dependent thermodynamic and transport properties [30].</li> 
+					    					<li>The Ar – H<sub>2</sub> plasma jet is an axisymmetric, unsteady, compressible, Newtonian, turbulent, and chemically reacting multi-component fluid mixture with temperature-dependent thermodynamic and transport properties 
+					    						<a class="reference">[9]<span class="referencetext">[9] J. D. Ramshaw and C. H. Chang, “Computational fluid dynamics modeling of multicomponent thermal plasmas,” Plasma Chem. plasma Process., vol. 12, no. 3, pp. 299–325, 1992.</span></a>.
+					    					</li> 
 											<li>Plasma is in local thermodynamic equilibrium (LTE).</li>
 											<li>Chemical reactions among different species including ionization, dissociation, and recombination are considered.</li>
 											<li>The plasma generation in the nozzle is not simulated.</li> 
@@ -1196,16 +1275,55 @@ $(document).ready(function(){
 											<li>The standard turbulence is considered and turbulence modulation is neglected.</li>
 											<li>The effect of powder injector geometry is not considered.</li>
 											<li>The particles are assumed as spherical.</li>
-											<li>The effects of gravity and buoyancy on the plasma jet and particle trajectories are neglected. These forces are negligible compared to viscous drag force [31], [32].</li>
+											<li>The effects of gravity and buoyancy on the plasma jet and particle trajectories are neglected. These forces are negligible compared to viscous drag force 
+												<a class="reference">[10]<span class="referencetext">[10] K. Cheng and X. Chen, “Effects of natural convection on the characteristics of long laminar argon plasma jets issuing upwards or downwards into ambient air—a numerical study,” J. Phys. D. Appl. Phys., vol. 37, no. 17, p. 2385, 2004.</span></a>.
+											</li>
 											<li>The effect of internal convection within the molten particles is neglected.</li>
 											<li>No mutual interactions among particles occur.</li> 
 											<li>The surface of particles is not oxidized.</li>
-											<li>The effect of carrier gas flow rate on plasma jet is neglected. It was emphasized that the carrier gas flow rate of 5 slm (Standard Liter per Minute) has a negligible effect on the plasma characteristics [5].</li>
+											<li>The effect of carrier gas flow rate on plasma jet is neglected. It was emphasized that the carrier gas flow rate of 5 slm (Standard Liter per Minute) has a negligible effect on the plasma characteristics 
+												<a class="reference">[6]<span class="referencetext">[6] Y. P. Wan, V. Prasad, G.-X. Wang, S. Sampath, and J. R. Fincke, “Model and powder particle heating, melting, resolidification, and evaporation in plasma spraying processes,” J. Heat Transfer, vol. 121, no. 3, pp. 691–699, 1999.</span></a>.
+											</li>
 											<li>Zirconia powder is considered.</li>
 											<li>For particle heating, 1D heat conduction model with melting, solidification, and evaporation are considered.</li>
 											<li>The randomness of the particle injection is considered.</li>
 										</ol>
-										<p class="pt-3">The detailed description of the governing equations with initial and boundary conditions of the plasma generation are described in [30]. The Ar-H<sub>2</sub> plasma jet profile computed using LAVA-P has been validated by Ramshaw et al. for the Metco 9MB plasma gun in [30]. Here, we compare computed results with the experimental findings of Williamson et al. for the Miller SG-100 plasma gun [33] when pure Ar is used to generate the plasma. The L<sub>2</sub>-norm of differences between the computed and the experimental results are less than 29.2%. The simulated values of the mean axial velocity and the mean temperature are compared with experimental results of Smith et al. [34] and the computed results agree well with the corresponding experimental ones with the maximum difference between the two being 7%.</p>
+
+										<div class="row py-0 px-0 mx-0">
+											<div class="mx-0 px-0 col-sm-12 col-md-12 col-lg-6">
+												<iframe width="100%" height="600px" src="APS_part_vel.html" frameborder="0"></iframe>
+												<h6 class="text-center pt-2"><strong>Figure 3:</strong> Velocity distribution of in-flight particles</h6>
+											</div>
+											<div class="mx-0 px-0 col-sm-12 col-md-12 col-lg-6">
+												<iframe width="100%" height="600px" src="APS_part_temp.html" frameborder="0"></iframe>
+												<h6 class="text-center pt-2"><strong>Figure 4:</strong> Tempearature distribution of in-flight particles</h6>
+											</div>
+										</div>
+
+										<p class="pt-3">The detailed description of the governing equations with initial and boundary conditions of the plasma generation are described in <a class="reference">[9]<span class="referencetext">[9] J. D. Ramshaw and C. H. Chang, “Computational fluid dynamics modeling of multicomponent thermal plasmas,” Plasma Chem. plasma Process., vol. 12, no. 3, pp. 299–325, 1992.</span></a>. The Ar-H<sub>2</sub> plasma jet profile computed using LAVA-P has been validated by Ramshaw et al. for the Metco 9MB plasma gun in 
+											<a class="reference">[9]<span class="referencetext">[9] J. D. Ramshaw and C. H. Chang, “Computational fluid dynamics modeling of multicomponent thermal plasmas,” Plasma Chem. plasma Process., vol. 12, no. 3, pp. 299–325, 1992.</span></a>. 
+										In our work, we also validated simulated results of plasma's axial velocity and temperature profiles with the experimental findings of Williamson et al. for the Miller SG-100 plasma gun 
+											<a class="reference">[11]<span class="referencetext">[11] R. L. Williamson, J. R. Fincke, D. M. Crawford, S. C. Snyder, W. D. Swank, and D. C. Haggard, “Entrainment in high-velocity, high-temperature plasma jets.: Part II: computational results and comparison to experiment,” Int. J. Heat Mass Transf., vol. 46, no. 22, pp. 4215–4228, 2003.</span></a> 
+										when pure Ar is used to generate the plasma. The L<sub>2</sub>-norm of differences between the computed and the experimental results are less than 29.2%. Furthermore, as shown in Figures 5 and 6, the simulated values of the mean axial velocity and the mean temperature are compared with experimental results of Smith et al. <a class="reference">[12]<span class="referencetext">[12] W. Smith, T. J. Jewett, S. Sampafh, W. D. Swank, and J. R. Fincke, “Plasma Processing of Functionally Graded Materials Part I: Process Diagnostics,” in Proc. United Thermal Spray Conf, 1997, pp. 599–605.</span></a> and the computed results agree well with the corresponding experimental ones with the maximum difference between the two being 7%.</p>
+
+										<div class="row py-0 px-0 mx-0">
+											<div class="mx-0 col-sm-12 col-md-6">
+												<iframe width="100%" height="300" src="Exp_simulation_vel.html" frameborder="0"></iframe>
+											</div>
+											<div class="mx-0 col-sm-12 col-md-6">
+												<iframe width="100%" height="300" src="Exp_simulation_temp.html" frameborder="0"></iframe>
+											</div>
+											<p class="text-center"><strong>Figure 5:</strong> Comparison of computed mean axial velocity and mean temperature with experimental data of Smith et al. for different values of the H<sub>2</sub> flow rate</p>
+										</div>
+										<div class="row px-0 py-3 mx-0">
+											<div class="mx-0 col-sm-12 col-md-6">
+												<iframe width="100%" height="300" src="Exp_simulation_vel_I.html" frameborder="0"></iframe>
+											</div>
+											<div class="mx-0 col-sm-12 col-md-6">
+												<iframe width="100%" height="300" src="Exp_simulation_temp_I.html" frameborder="0"></iframe>
+											</div>
+											<p class="text-center"><strong>Figure 6:</strong> Comparison of computed mean axial velocity and mean temperature with experimental data of Smith et al. for different values of the current</p>
+										</div>
 					    			</div>
 					    		</div>
 					    </div><!--End of Slide 3 -->
@@ -1214,7 +1332,7 @@ $(document).ready(function(){
 					    <div id="screening" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">Screening of process parameters</h4>
 				    		<div class="row container py-0 px-0 mx-0">
-				    			<div class="container mx-0 px-0 col-sm-12 col-lg-7 text-center">
+				    			<div class="px-0 col-sm-12 col-lg-8 text-center" style="margin: 0 auto">
 									<div id="caroselProject2" class="carousel slide" data-ride="carousel">
 										<div class="carousel-inner" style="border: 1px solid var(--on-color)">
 										    <div class="carousel-item active">
@@ -1258,7 +1376,7 @@ $(document).ready(function(){
 										</a>
 									</div>
 								</div>
-								<div class="container mx-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+								<div class="mx-0 px-2 col-sm-12 col-lg-12 text-justify">
 									<p class="pt-2">The screening analysis for plasma spray process is done by ranking the strength of the impact of process parameters (inputs) on the mean particles’ states (outputs). The outcome of this screening analysis is a list of significant process parameters, which are used for identifying response functions for the mean particles’ states. </p>
 
 									<p class="pt-2">Here, we focus on seven process parameters, which are current, argon flow rate, hydrogen flow rate, powder feed rate, spraying distance, injector location along the jet (y-) axis and along (z-) axis. We use the global one-factor-at-a-time (OFAT) screening analysis proposed by Morris 
@@ -1275,7 +1393,7 @@ $(document).ready(function(){
 					    <div id="optimization" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">Process parameter optimization</h4>
 					    	<div class="row container py-0 px-0 mx-0">
-				    			<div class="container mx-0 px-0 col-sm-12 col-lg-7 text-center">
+				    			<div class="px-0 col-sm-12 col-lg-8 text-center" style="margin: 0 auto">
 									<div id="caroselProject3" class="carousel slide" data-ride="carousel">
 										<div class="carousel-inner" style="border: 1px solid var(--on-color)">
 										    <div class="carousel-item active">
@@ -1325,7 +1443,7 @@ $(document).ready(function(){
 										</a>
 									</div>
 								</div>
-								<div class="container mx-0 px-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
+								<div class="mx-0 px-2 col-sm-12 col-lg-12 text-justify">
 									<p class="pt-2">Three steps involved in finding the optimal values of process parameters for desired mean particles’ states are screening, identification of response functions, and optimization. The screening analysis is done by ranking the strength of the impact of process parameters on the mean particles’ states. The outcome of this screening analysis is a list of significant process parameters, which are used for identifying response functions for the mean particles’ states. We used a complete polynomial of degree 2 for mean particles’ states in terms of these significant process parameters. The statistical significance of main and interaction effects (i.e. variable terms in polynomial) are determined using the analysis of variance (ANOVA). This analysis suggests which terms in the polynomial are insignificant to reduce the complexity of polynomial; and corresponding coefficients are estimated using linear regression analysis. Finally, the resulting response functions for the mean particles’ states are used to construct an objection function. Then the optimization problem is solved for finding optimal values of significant process parameters using genetic algorithm.</p>
 
 									<p class="pt-2">The percentage error between simulated and desired mean particles’ states is less than 4 % except for one case. For the desired values of mean axial velocity of 100 m/s and mean temperature of 3100 K, the solutions from these two algorithms show a maximum 4.2 % error with simulated ones. This is due to lack of an optimum solution in assumed parameter space. These approaches are valid only if the values of process parameters are in the range of values used for developing response functions. The predicted process parameters from GA optimization will be used to estimate initial parameters for a control algorithm. Note that identified response functions are valid when other process parameters are not changing.</p>
@@ -1336,74 +1454,89 @@ $(document).ready(function(){
 					    <!-- Slide 6 -->
 						<div id="system-ident" class="container px-0" style="height:auto">
 					    	<h4 class="pt-5 pb-2 text-center">System identification in plasma spray process</h4>
-				    		<div class="row container px-0 py-0 mx-0">
-				    			<div class="container px-0 py-2 col-sm-12 col-lg-7 text-center">
-									<div id="caroselProject4" class="carousel slide" data-ride="carousel">
-										<div class="carousel-inner" style="border: 1px solid var(--on-color)">
-										    <div class="carousel-item active">
-										    	<img class="d-block w-100" src="img/project4-1.png" alt="First slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-2.png" alt="Second slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-3.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-4.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-5.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-6.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-7.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-8.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-9.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-10.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/project4-11.png" alt="Third slide">
-										    </div>
-										    <div class="carousel-item">
-										    	<img class="d-block w-100" src="img/thankyou.png">
-										    </div>
-										</div>
-										<a class="carousel-control-prev" href="#caroselProject4" role="button" data-slide="prev">
-										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
-										    <span class="sr-only">Previous</span>
-										</a>
-										<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject4" role="button" data-slide="next">
-										    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
-										    <span class="sr-only">Next</span>
-										</a>
+			    			<div class="py-2 col-sm-12 col-lg-7 text-center" style = "margin:0 auto">
+								<div id="caroselProject4" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner" style="border: 1px solid var(--on-color)">
+									    <div class="carousel-item active">
+									    	<img class="d-block w-100" src="img/project4-1.png" alt="First slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-2.png" alt="Second slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-3.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-4.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-5.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-6.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-7.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-8.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-9.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-10.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/project4-11.png" alt="Third slide">
+									    </div>
+									    <div class="carousel-item">
+									    	<img class="d-block w-100" src="img/thankyou.png">
+									    </div>
 									</div>
-				    			</div>
-				    			<div class="container px-2 py-2 col-sm-12 col-lg-5 text-justify" style="height: 28rem;overflow-y: auto; display: inline-block;">
-				    				<p>In an atmospheric plasma spray process, several physical phenomena such as chemical reactions among species; turbulence in plasma jet; particle heating, melting, and vaporization; and particle acceleration are involved. Due to the complexity of the process, finding an exact differential equation between inputs and outputs is one of the challenging issues for developing an efficient control system.</p>
+									<a class="carousel-control-prev" href="#caroselProject4" role="button" data-slide="prev">
+									    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-left" aria-hidden="true"></i></span>
+									    <span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" style="color: var(--theme-color)" href="#caroselProject4" role="button" data-slide="next">
+									    <span style="color: var(--theme-color)"><i class="fa fa-4x fa-angle-right" aria-hidden="true"></i></span>
+									    <span class="sr-only">Next</span>
+									</a>
+								</div>
+			    			</div>
+			    			<div class="px-2 py-2 col-sm-12 text-left">
+			    				<p>In an atmospheric plasma spray process, several physical phenomena such as chemical reactions among species; turbulence in plasma jet; particle heating, melting, and vaporization; and particle acceleration are involved. Due to the complexity of the process, finding an exact differential equation between inputs and outputs is one of the challenging issues for developing an efficient control system.</p>
 
-				    				<p class="pt-3">One can develop approximate mathematical models between the inputs and the outputs based on the known information, which are classified into black box, grey box or white box model. The black model (E.g. ANN) implies the model is estimated based on the input-output data without any prior information about the structure of a physical plant. The grey box model implies that the model is developed from the structure of plant dynamics and its parameters are estimated using identification techniques from input-output data. In the white box model, the structure and its parameters are already known from physics. We focus on developing a grey model for mean particles’ states since particles' axial velocity and temperature are governed by particle acceleration and 1D heat conduction model, respectively. The structure of this model is obtained by linearization of nonlinear dynamics of particle states around an equilibrium point. This linear model would possess the information about steady-state and transient behavior of the mean particles’ states when the inputs have changed from an equilibrium point. The coefficients of the linear model can be estimated by the system identification approach using the given input-output data.</p>
-									
-									<p class="pt-3">To estimate these coefficients, we used the following steps:
-										<ol>
-											<li>Designed numerical experiments randomly from Latin hypercube sampling using sufficiently rich input signals to excite the plant dynamics around an operating point.</li>
-											<li>Simulated mean particles states from LAVA-P software for chosen inputs’ variations</li>
-											<li>Estimated the coefficients of linearized models using input-output data from simulations based on the prediction error minimization (PEM) framework.</li>
-											<li>Validated the estimated models using input-output data which was not used for the estimation.</li>
-										</ol>
-				    				</p>
+			    				<p class="pt-3">One can develop approximate mathematical models between the inputs and the outputs based on the known information, which are classified into black box, grey box or white box model. The black box model (E.g. ANN) implies the model is estimated based on the input-output data without any prior information about the structure of a physical plant. The grey box model implies that the model is developed from the structure of plant dynamics and its parameters are estimated using identification techniques from input-output data. In the white box model, the structure and its parameters are already known from physics. We focused on developing grey models for mean particles’ states since particles' axial velocities and temperatures are governed by particle acceleration and 1D heat conduction models, respectively. The structure of these models are obtained by linearization of nonlinear dynamics of particle states around an equilibrium point. These linearized models would possess the information about steady-state and transient behavior of the mean particles’ states when the inputs change from an equilibrium point.</p>
 
-				    				<p class="pt-3">The estimation of coefficients of linearized models is carried out using the MATLAB toolbox ‘ident’ with function ‘ssest’. The responses of estimated models of the mean axial velocity are shown in good agreement with the given output data with an average fit percentage of 85 % for training and 82 % for validation. Whereas for the mean temperature, the responses of the estimated models satisfactorily agree with 72 % for training and 66 % for validation. The estimated parameters for the mean axial velocity and the mean temperature of 50 samples are distributed closer to each other with a few outliers.</p> 
-				    			</div>
-				    		</div>
+			    				<p class="pt-3">Linearization of particle acceleration and 1D heat conduction model around an equilibrium point results in following multi inputs – single output (MISO) SS model for the mean axial velocity and the mean temperature:</p>
+			    				<div class="text-center" style="margin: 0 auto">
+			    					<span><img style="height:4rem" src=img/eq_ss.png></span>
+			    				</div>
+			    				<p>Here, the parameters <span><img style="height:1.3rem" src=img/eq_ss_1.png></span> are assumed as constants and are depend on the equilibrium point. These parameters can be estimated using system identification from the input-output data. The objective is to verify whether the assumed models with estimated parameters shown in above equation represent the dynamics of mean particles’ states around an equilibrium point.</p>
+								
+								<p class="pt-3">To estimate these parameters, we used the following steps:
+									<ol>
+										<li>Designed numerical experiments randomly from Latin hypercube sampling using sufficiently rich input signals to excite the plant dynamics around an operating point.</li>
+										<li>Simulated mean particles states from LAVA-P software for chosen inputs’ variations</li>
+										<li>Estimated the coefficients of linearized models using input-output data from simulations based on the prediction error minimization (PEM) framework.</li>
+										<li>Validated the estimated models using input-output data which was not used for the estimation.</li>
+									</ol>
+			    				</p>
+
+			    				<div class="row py-0 px-0 mx-0">
+									<div class="mx-0 px-3 col-sm-12 col-md-6">
+										<h6 class="text-center pt-2"> Estimated SS parameters for mean axial velocity</h6>
+										<iframe width="100%" height="400" src="SS_param_vel.html" frameborder="0"></iframe>
+									</div>
+									<div class="mx-0 px-3 col-sm-12 col-md-6">
+										<h6 class="text-center pt-2"> Estimated SS parameters for mean temperature</h6>
+										<iframe width="100%" height="400" src="SS_param_temp.html" frameborder="0"></iframe>
+									</div>
+								</div>
+
+			    				<p class="pt-3">The estimation of coefficients of linearized models is carried out using the MATLAB toolbox ‘ident’ with function ‘ssest’. The responses of estimated models of the mean axial velocity are shown in good agreement with the given output data with an average fit percentage of 85 % for training and 82 % for validation. Whereas for the mean temperature, the responses of the estimated models satisfactorily agree with 72 % for training and 66 % for validation. The estimated parameters for the mean axial velocity and the mean temperature of 50 samples are distributed closer to each other with a few outliers.</p> 
+			    			</div>
 					    </div><!-- End of Slide 6 -->
 
 					    <!-- Slide 7 -->
@@ -2019,17 +2152,17 @@ $(document).ready(function(){
 										        	<!--First slide-->
 											        <div class="carousel-item active">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/friends.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												                <div class="card mb-2" >
 												                	<img class="card-img-top" src="img/naruto.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												                <div class="card mb-2">
 												                	<img class="card-img-top" src="img/dragonball.jpg">
 												                </div>
@@ -2039,17 +2172,17 @@ $(document).ready(function(){
 											        <!--Second slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/got.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/breakingbad.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/shield.png">
 												              	</div>
@@ -2059,17 +2192,17 @@ $(document).ready(function(){
 											        <!--Third slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/flash.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/familyguy.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/strangerthings.jpg">
 												              	</div>
@@ -2091,17 +2224,17 @@ $(document).ready(function(){
 											        <!--First slide-->
 											        <div class="carousel-item active">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<a href="https://www.youtube.com/user/queenofficial" target="_blank"><img class="card-img-top" src="img/queen.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2" >
 												                	<a href="https://youtu.be/D93PBlwBp8s" target="_blank"><img class="card-img-top"src="img/blues.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<a href="https://www.youtube.com/channel/UCNJFXYXkXt_P8bJUxb21MpA" target="_blank"><img class="card-img-top" src="img/jazz.jpg"></a>
 												              	</div>
@@ -2111,17 +2244,17 @@ $(document).ready(function(){
 											        <!--Second slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<a href="https://www.youtube.com/channel/UCfIXdjDQH9Fau7y99_Orpjw" target="_blank"><img class="card-img-top" src="img/gorillaz.jpg"></a>
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/pop.png">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<a href="https://youtu.be/WFFRFPeyQHA" target="_blank"><img class="card-img-top"  src="img/chillmusic.jpg"></a>
 												              	</div>
@@ -2141,17 +2274,17 @@ $(document).ready(function(){
 											        <!--First slide-->
 											        <div class="carousel-item active">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/dailyshow.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2" >
 												                	<img class="card-img-top" src="img/lateshow.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/sethmeyers.jpg">
 												              	</div>
@@ -2161,17 +2294,17 @@ $(document).ready(function(){
 											        <!--Second slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/cuttheclutter.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/kevinhart.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/fluffy.jpg">
 												              	</div>
@@ -2181,17 +2314,17 @@ $(document).ready(function(){
 											        <!--Third slide-->
 											        <div class="carousel-item">
 											          	<div class="row">
-												            <div class="col-md-4">
+												            <div class="col-sm-4">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/trevornoah.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/russellpeters.jpg">
 												              	</div>
 												            </div>
-												            <div class="col-md-4 clearfix d-block d-md-block">
+												            <div class="col-sm-4 clearfix d-block d-md-block">
 												              	<div class="card mb-2">
 												                	<img class="card-img-top" src="img/lastweek.jpg">
 												              	</div>
@@ -2553,7 +2686,6 @@ $(document).ready(function(){
 		}
 		});
 	</script>
-
 	<script src="js/particles.js"></script>
 	<script src="js/connected-dots.js"></script>
 	<script src="js/dots.js"></script>

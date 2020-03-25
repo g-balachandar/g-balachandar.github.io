@@ -36,7 +36,7 @@ body {
     border-radius: 50%;
     position: absolute;
     transition-duration: 500ms;
-    transition-timing-function: linear;
+    transition-timing-function: ease-in-out;
     pointer-events: none;
     z-index: 9999;
 }
@@ -363,7 +363,7 @@ input:checked + .dark-btn:before {
 	position: relative;
 	display: block;
 }
-
+	
 
 
 
@@ -392,11 +392,11 @@ input:checked + .dark-btn:before {
     -webkit-box-shadow: 0 0 10px var(--theme-color);	
 }
 .fortran { width: 70%; animation: fortran 3s infinite;}
-.matlab { width: 90%; animation: matlab 3s infinite;}
+.matlab { width: 75%; animation: matlab 3s infinite;}
 .ansys { width: 60%; animation: ansys 3s infinite;}
 .phython { width: 50%; animation: phython 3s infinite;}
 .tinker { width: 40%; animation: tinker 3s infinite;}
-.jmp { width: 50%; animation: jmp 3s infinite;}
+.R { width: 50%; animation: R 3s infinite;}
 .labview { width: 50%; animation: labview 3s infinite;}
 .mathematica { width: 40%; animation: mathematica 3s infinite;}
 .html { width: 60%; animation: html 3s infinite;}
@@ -407,7 +407,7 @@ input:checked + .dark-btn:before {
 }
 @keyframes matlab {
 	0%{width: 0%;};
-	100%{width: 90%;}
+	100%{width: 75%;}
 }
 @keyframes ansys{
 	0%{width: 0%;};
@@ -421,7 +421,7 @@ input:checked + .dark-btn:before {
 	0%{width: 0%;};
 	100%{width: 50%;}
 }
-@keyframes jmp{
+@keyframes R {
 	0%{width: 0%;};
 	100%{width: 50%;}
 }
@@ -1193,17 +1193,4 @@ input[type=submit]:hover:after{
 .social-media-icons:hover{
 	color: var(--theme-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
