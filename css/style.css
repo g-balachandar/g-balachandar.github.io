@@ -10,7 +10,7 @@
 }
 [data-theme="dark"]{
 	--main-bg-color: #1f1f1f;
-	--default-color: #ccc;
+	--default-color: #999;
 	--light-text-color: #999;	
 	--highlight-text-color: #0a0a0a;	
 	--theme-color: #23ea73;

@@ -239,6 +239,9 @@ Extra large ≥1200px */
     header {
 	    padding: 0 3vw 0;
 	}
+	body {
+		overflow: hidden;
+	}
 	.wrapper {
 		overflow: hidden;
 	}
